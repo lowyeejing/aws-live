@@ -121,7 +121,8 @@ def leaveOutput():
     endDate = datetime.strptime(end_date, "%Y-%m-%d")
 
     difference = endDate - startDate
-    daysLeave = int(difference + timedelta(1))
+    daysLeave = difference + timedelta(1)
+    daysLeave = daysLeave.days
 
     insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
