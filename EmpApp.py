@@ -88,7 +88,6 @@ def AddEmpOutput():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
-
 @app.route("/attendance", methods=['GET', 'POST'])
 def att():
     return render_template('Attendance.html')
