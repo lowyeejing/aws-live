@@ -20,25 +20,27 @@ db_conn = connections.Connection(
 output = {}
 table = 'employee'
 
-
+#Homepage
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('Homepage.html')
 
-
+#Payroll
 @app.route("/payroll", methods=['GET', 'POST'])
 def payroll():
     return render_template('Payroll.html')
 
-
+#PayrollOutput
 @app.route("/payroll/output", methods=['POST'])
 def payrollOutput():
     return render_template('PayrollOutput.html')
 
+#AddEmployee
 @app.route("/addemp", methods=['GET', 'POST'])
 def addEmp():
     return render_template('AddEmp.html')
 
+#AddEmployeeOutput
 @app.route("/addemp/output", methods=['POST'])
 def AddEmpOutput():
     emp_id = request.form['emp_id']
@@ -88,14 +90,25 @@ def AddEmpOutput():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
+#Attendance
 @app.route("/attendance", methods=['GET', 'POST'])
 def att():
     return render_template('Attendance.html')
 
-
+#AttendanceOutput
 @app.route("/attendance/output", methods=['POST'])
 def attOutput():
     return render_template('AttendanceOutput.html')
+
+#GetEmployee
+@app.route("/display", methods=['GET', 'POST'])
+def att():
+    return render_template('GetEmp.html')
+
+#GetEmployeeOutput
+@app.route("/display/output", methods=['POST'])
+def attOutput():
+    return render_template('GetEmpOutput.html')
 
 #Leave
 @app.route("/leave", methods=['GET', 'POST'])
@@ -114,6 +127,7 @@ from datetime import datetime
 def PayRoll():
     return  render_template('Payroll.html', date = datetime.now())
 
+#Payroll Output
 @app.route("/payroll/results", methods=['GET', 'POST'])
 def CalculatePayRoll():
 
