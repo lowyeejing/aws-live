@@ -40,7 +40,7 @@ def addEmp():
     return render_template('AddEmp.html')
 
 @app.route("/addemp/output", methods=['POST'])
-def AddEmp():
+def AddEmpOutput():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
