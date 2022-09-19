@@ -89,7 +89,9 @@ form {
     background: #fff;
 }
 .form-inner {
-    padding: 50px;
+    padding: 25px 50px;
+    background-color: azure;
+    border-radius: 20px;
 }
 .form-inner input,
 .form-inner textarea {
@@ -107,7 +109,6 @@ form {
 button {
     width: 50%;
     padding: 10px;
-    margin-top: 20px;
     border-radius: 20px;
     background: #b4fcfc; 
     font-size: 16px;
@@ -171,7 +172,7 @@ input[type=radio]:checked + label:after {
     margin: 6px 0;
 }
 .container {
-    padding: 16px 0;
+    /* padding: 16px 0; */
     text-align:left;
     border-radius: 20px;
 }
