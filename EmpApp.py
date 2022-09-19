@@ -117,6 +117,13 @@ def leaveOutput():
     # difference between dates in timedelta
     # days = end_date - start_date
 
+    def days_between(d1, d2):
+        start_date = datetime.strptime(start_date, "%Y-%m-%d")
+        end_date = datetime.strptime(end_date, "%Y-%m-%d")
+        return abs((end_date - start_date).days)
+
+    days = days_between(start_date,end_date)
+
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
@@ -164,7 +171,7 @@ def leaveOutput():
         cursor.close()
 
     print("all modification done...")
-    return render_template('LeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id)  
+    return render_template('LeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, ttldaysofleave = days)  
 
 #Payroll Calculator
 from datetime import datetime
