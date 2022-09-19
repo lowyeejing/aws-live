@@ -113,10 +113,10 @@ def leaveOutput():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    start_date = ''
-    end_date = ''
-    # start_date = request.form['startdate']
-    # end_date = request.form['enddate']
+    # start_date = ''
+    # end_date = ''
+    start_date = request.form['startdate']
+    end_date = request.form['enddate']
     # LeaveTime = datetime.now()
     # startdate = LeaveTime.strptime(request.form['startdate'],'%Y-%m-%d')
     # enddate = LeaveTime.strptime(request.form['enddate'],'%Y-%m-%d')
