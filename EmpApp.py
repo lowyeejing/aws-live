@@ -113,13 +113,8 @@ def leaveOutput():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    # start_date = ''
-    # end_date = ''
     start_date = request.form['start_date']
     end_date = request.form['end_date']
-    # LeaveTime = datetime.now()
-    # startdate = LeaveTime.strptime(request.form['startdate'],'%Y-%m-%d')
-    # enddate = LeaveTime.strptime(request.form['enddate'],'%Y-%m-%d')
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
 
@@ -134,6 +129,7 @@ def leaveOutput():
         cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, comment))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
+        days = (enddate - startdate) + 1
         # Uplaod image file in S3 #
         emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file.png"
         s3 = boto3.resource('s3')
@@ -161,7 +157,7 @@ def leaveOutput():
         cursor.close()
 
     print("all modification done...")
-    return render_template('LeaveOutput.html', date = datetime.now())  
+    return render_template('LeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, ttldaysofleave = days)  
 
 #Payroll Calculator
 from datetime import datetime
