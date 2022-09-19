@@ -3,11 +3,12 @@
 
 <head>
   <title>Homepage</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Home.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Home.css')}}" />
 </head>
 
 <body style="background: url('/static/img/HomepageBackground.jpeg') no-repeat center; background-size: cover;">
-  <div class="main-block" style="background: url('/static/img/HomepageBackground.jpeg') no-repeat center; background-size: cover;">
+  <div class="main-block"
+    style="background: url('/static/img/HomepageBackground.jpeg') no-repeat center; background-size: cover;">
     <div class="block-item left">
       <h1>Employee Management System</h1>
     </div>
@@ -34,7 +35,7 @@
       </div>
       <div class="button-container2">
         <a href="/display">
-          <button class="btn function"><span>Display Employee</span></button>
+          <button class="btn function"><span>Search Employee</span></button>
         </a>
       </div>
     </div>

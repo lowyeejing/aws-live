@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Search Employee Output</title>
+	<!-- <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}"/> -->
+	<link rel="stylesheet" href="../static/JY.css">
+</head>
+
+<!-- <body style="background: url('/static/img/background_addEmp.jpg') no-repeat center; background-size: cover;"> -->
+
+<body style="background: url('../static/img/background_display.jpeg') no-repeat center; background-size: cover; opacity: 80%;">
+	<div class="output container" style="background: url('../static/img/background_display.jpg') no-repeat center; background-size: cover; height: 500px;">
+		<h1 class="output_title" style="background-color: #f8f8f8; box-shadow: 0 0px 15px -5px #ffa44e;">Employee Search Result</h1>
+		<h3>{{ image_url }}</h3><br>
+		<h3>{{ id }}</h3><br>
+		<h3>{{ fname }}</h3><br>
+		<h3>{{ lname }}</h3><br>
+		<h3>{{ skill }}</h3><br>
+		<h3>{{ location }}</h3><br>
+		<div style="text-align:center;">
+			<form action="/" autocomplete="on" method="GET">
+				<button type="submit" class="back_btn" style="border-color: #ffab46; border-radius: 10px; color: rgb(255 189 89);">Go Back</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
