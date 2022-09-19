@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Search Employee Information</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}" />
+</head>
+
+<body style="background: url('/static/img/background_display.jpeg') no-repeat center; background-size: cover;">
+	<form class="container" style="height:fit-content" action="/getemp/output" autocomplete="on" method="POST">
+		<button style="border: none;background: none;">
+			<a class="back" href="http://18.234.115.251/">&times;</a>
+		</button>
+		<div class="card">
+			<h1 class="card_title" style="width:fit-content">Search Employee</h1>
+			<div class="search">
+				<div style="padding: 15px 0;">
+					<label>Employee ID:</label>
+				</div>
+				<input class="input_field input_label" type="text" name="emp_id"
+					style="width: -webkit-fill-available; padding-top: 10px;" autofocus><br><br>
+			</div>
+			<button type="submit" class="search_btn"
+				style="width:-webkit-fill-available;margin:0">Search</button><br><br>
+		</div>
+	</form>
+</body>
+
+</html>
