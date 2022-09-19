@@ -110,6 +110,8 @@ def leave():
 @app.route("/leave/output", methods=['POST'])
 def leaveOutput():
 
+    days = (end_date.getTime() - start_date.getTime()) + 1
+
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
@@ -129,7 +131,7 @@ def leaveOutput():
         cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, comment))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
-        days = (end_date.getTime() - start_date.getTime()) + 1
+        
         # Uplaod image file in S3 #
         emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file.png"
         s3 = boto3.resource('s3')
