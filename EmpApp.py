@@ -135,7 +135,7 @@ def leaveOutput():
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
-        emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file.jpg"
+        emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file.png"
         s3 = boto3.resource('s3')
 
         try:
