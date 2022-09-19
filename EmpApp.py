@@ -25,16 +25,6 @@ table = 'employee'
 def home():
     return render_template('Homepage.html')
 
-#Payroll
-@app.route("/payroll", methods=['GET', 'POST'])
-def payroll():
-    return render_template('Payroll.html')
-
-#PayrollOutput
-@app.route("/payroll/output", methods=['POST'])
-def payrollOutput():
-    return render_template('PayrollOutput.html')
-
 #AddEmployee
 @app.route("/addemp", methods=['GET', 'POST'])
 def addEmp():
@@ -118,6 +108,53 @@ def leave():
 #LeaveOutput
 @app.route("/leave/output", methods=['POST'])
 def leaveOutput():
+    
+    emp_id = request.form['emp_id']
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    start_date = request.form['startdate']
+    end_date = request.form['enddate']
+    comment = request.form['comment']
+    emp_leave_file = request.files['emp_leave_file']
+
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    if emp_leave_file.filename == "":
+        return "Please select a file"
+
+    try:
+
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, startdate, enddate, comment))
+        db_conn.commit()
+        emp_name = "" + first_name + " " + last_name
+        # Uplaod image file in S3 #
+        emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file"
+        s3 = boto3.resource('s3')
+
+        try:
+            print("Data inserted in MySQL RDS... uploading image to S3...")
+            s3.Bucket(custombucket).put_object(Key=emp_leave_file_name_in_s3, Body=emp_leave_file)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
+
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                emp_leave_file_name_in_s3)
+
+        except Exception as e:
+            return str(e)
+
+    finally:
+        cursor.close()
+
+    print("all modification done...")
     return render_template('LeaveOutput.html', date = datetime.now())  
 
 #Payroll Calculator
@@ -128,7 +165,7 @@ def PayRoll():
     return  render_template('Payroll.html', date = datetime.now())
 
 #Payroll Output
-@app.route("/payroll/results", methods=['GET', 'POST'])
+@app.route("/payroll/output", methods=['GET', 'POST'])
 def CalculatePayRoll():
 
     cursor = db_conn.cursor()
