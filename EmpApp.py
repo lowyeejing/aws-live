@@ -110,7 +110,12 @@ def leave():
 @app.route("/leave/output", methods=['POST'])
 def leaveOutput():
 
-    days = (end_date.getTime() - start_date.getTime()) + 1
+    # convert string to date object
+    start_date = datetime.strptime(end_date, "%Y/%m/%d")
+    end_date = datetime.strptime(end_date, "%Y/%m/%d")
+
+    # difference between dates in timedelta
+    days = end_date - start_date
 
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
