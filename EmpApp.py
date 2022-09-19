@@ -109,14 +109,6 @@ def leave():
 #LeaveOutput
 @app.route("/leave/output", methods=['POST'])
 def leaveOutput():
-
-    # convert string to date object
-    # start_date = datetime.strptime(end_date, "%Y/%m/%d")
-    # end_date = datetime.strptime(end_date, "%Y/%m/%d")
-
-    # difference between dates in timedelta
-    # days = end_date - start_date
-
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
@@ -128,7 +120,8 @@ def leaveOutput():
     startDate = datetime.strptime(start_date, "%Y-%m-%d")
     endDate = datetime.strptime(end_date, "%Y-%m-%d")
 
-    days = endDate - startDate
+    difference = endDate - startDate
+    days = difference + 1
 
     insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
