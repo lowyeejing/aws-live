@@ -101,14 +101,14 @@ def attOutput():
     return render_template('AttendanceOutput.html')
 
 #GetEmployee
-# @app.route("/getemp", methods=['GET', 'POST'])
-# def att():
-#     return render_template('GetEmp.html')
+@app.route("/getemp", methods=['GET', 'POST'])
+def att():
+    return render_template('GetEmp.html')
 
 #GetEmployeeOutput
-# @app.route("/getemp/output", methods=['POST'])
-# def attOutput():
-#     return render_template('GetEmpOutput.html')
+@app.route("/getemp/output", methods=['POST'])
+def attOutput():
+    return render_template('GetEmpOutput.html')
 
 #Leave
 @app.route("/leave", methods=['GET', 'POST'])
