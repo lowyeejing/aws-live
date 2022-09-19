@@ -109,6 +109,13 @@ def leave():
 @app.route("/leave/output", methods=['POST'])
 def leaveOutput():
     
+    DateTime dt = new DateTime()
+        if (DateTime.TryParse(Convert.ToString(Request.Form["date"]), out dt))
+        {
+            string start_date = dt.ToString("dd-MMM-yyyy");
+            string end_date = dt.ToString("dd-MMM-yyyy");
+        }
+
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
@@ -117,7 +124,7 @@ def leaveOutput():
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_leave_file.filename == "":
