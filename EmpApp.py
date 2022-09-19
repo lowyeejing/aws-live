@@ -129,7 +129,7 @@ def leaveOutput():
         cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, comment))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
-        days = (enddate - startdate) + 1
+        days = (end_date.getTime() - start_date.getTime()) + 1
         # Uplaod image file in S3 #
         emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file.png"
         s3 = boto3.resource('s3')
@@ -185,8 +185,8 @@ def CalculatePayRoll():
         bonusRate = 0.3
         totalWorkingHrs = workingHoursPerDay * totalWorkDays 
         salary = float(totalWorkingHrs * salaryPerHr) 
-        bonus = round((salary * bonusRate), 2)
-        totalSalary =  round((salary + bonus), 2)
+        bonus = "{:.2f}".format((salary * bonusRate))
+        totalSalary = "{:.2f}".format((salary + bonus))
     
     else:
         print("Data Insufficient!!")
