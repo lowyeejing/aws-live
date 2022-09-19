@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Attendance</title>
+    <link rel="stylesheet" href="JY.css">
+</head>
+
+<body style="background: url(background_attendance.jpg) no-repeat center; background-size: cover;">
+    <div class="container" style="height:fit-content">
+        <button style="border: none;background: none;"><a class="back" href="Homepage.html">&times;</a></button>
+        <div class="card">
+            <h1 class="card_title" style="padding: 0 0 15px 0; width:fit-content">Attendance Database</h1>
+            <form action="/attendanceemp" autocomplete="on" method="POST" enctype="multipart/form-data">
+                <div class="input">
+                    <input type="text" name="emp_id" class="input_field input_label" placeholder="Employee ID"
+                        required />
+                </div>
+                <div class="input_check">
+                    <input type="radio" id="checkIn" name="attend_status" value="Check In" required>
+                    <label for="checkIn">Check In</label><br>
+                </div>
+                <div class="input_check">
+                    <input type="radio" id="checkOut" name="attend_status" value="Check Out">
+                    <label for="checkOut">Check Out</label><br>
+                </div>
+                <button class="card_button attendance_btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

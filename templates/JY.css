@@ -8,8 +8,6 @@ body {
     font-family: Roboto, sans-serif;
     color: #515a6e;
     background-color: #d5eafc;
-    background: url(background_addEmp.jpg) no-repeat center;
-    background-size: cover;
     height: 100%;
     margin: 0;
     overflow: hidden;
@@ -77,6 +75,10 @@ a {
     overflow-y: scroll;
 }
 
+.container::-webkit-scrollbar {
+    display: none;
+}
+
 .card {
     position: relative;
     z-index: 2;
@@ -101,7 +103,7 @@ a {
     font-size: 18px;
     line-height: 36px;
     font-weight: 500;
-    margin: 25px 0 10px;
+    margin: 10px 0 10px;
     color: #fff;
     background: linear-gradient(rgb(223 200 255), #c196ff);
     box-shadow: 0 2px 12px -3px #000000;
@@ -130,25 +132,8 @@ a {
     background-color: transparent;
     border-bottom: 2px solid #eee;
     font: inherit;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 30px;
-}
-
-.input_eye {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 36px;
-    height: 30px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
 }
 
 .link {
@@ -182,10 +167,10 @@ a {
     font-weight: 600;
     position: absolute;
     top: 0;
-    right: 10px;
+    right: 0;
     width: fit-content;
-    padding: 0px 30px;
-    margin: 25px 10px;
+    padding: 0px 20px;
+    margin: 20px 10px;
     color: black;
 }
 
@@ -219,4 +204,13 @@ a {
     border-radius: 10px;
     color: rgb(181, 128, 255);
     background: white;
+}
+
+.attendance_btn {
+    background: linear-gradient(rgb(254 224 255), #f699e9);
+}
+
+.input_check {
+    font-size: 18px;
+    padding: 10px 5px;
 }
