@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from datetime import datetime
 from pymysql import connections
 import os
 import boto3
@@ -114,9 +115,9 @@ def leaveOutput():
     last_name = request.form['last_name']
     # start_date = request.form['startdate']
     # end_date = request.form['enddate']
-    from datetime import datetime
-    startdate = datetime.datetime.strptime(request.form['startdate'],'%Y-%m-%d')
-    enddate = datetime.datetime.strptime(request.form['enddate'],'%Y-%m-%d')
+    LeaveTime = datetime.now()
+    startdate = LeaveTime.strptime(request.form['startdate'],'%Y-%m-%d')
+    enddate = LeaveTime.strptime(request.form['enddate'],'%Y-%m-%d')
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
 
@@ -186,8 +187,8 @@ def CalculatePayRoll():
         bonusRate = 0.3
         totalWorkingHrs = workingHoursPerDay * totalWorkDays 
         salary = float(totalWorkingHrs * salaryPerHr) 
-        bonus = float(salary * bonusRate)
-        totalSalary =  float(salary + bonus)
+        bonus = round((salary * bonusRate), 2)
+        totalSalary =  round((salary + bonus), 2)
     
     else:
         print("Data Insufficient!!")
