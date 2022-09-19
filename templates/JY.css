@@ -188,3 +188,35 @@ a {
     margin: 25px 10px;
     color: black;
 }
+
+.output {
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 30%);
+    width: 500px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.output_title {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+    background: white;
+    box-shadow: 0 0px 15px -5px #63a6de;
+    padding: 11px;
+}
+
+.back_btn {
+    width: fit-content;
+    font-size: 25px;
+    font-weight: 600;
+    top: 0;
+    right: 10px;
+    padding: 5px 35px;
+    color: black;
+    border-color: #c196ff;
+    border-radius: 10px;
+    color: rgb(181, 128, 255);
+    background: white;
+}
