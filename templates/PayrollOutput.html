@@ -33,11 +33,11 @@
                 <p>Employee ID</p>
                 <h3>{{emp_id}}</h3>
                 <p>Total Working Hours</p>
-                <h3>{{workingHours}}</h3>
+                <h3>{{ "%.2f"|format(workingHours) }} Hours</h3>
                 <p>Monthly Salary</p>
-                <h3>{{mthSalary}}</h3>
+                <h3>RM {{ "%.2f"|format(mthSalary) }}</h3>
                 <p>Bonus Earned</p>
-                <h3>{{BonusEarned}}</h3>
+                <h3>RM {{ "%.2f"|format(BonusEarned) }}</h3>
             </div>
             <br>
             <form action="/" autocomplete="on" method = "GET" style="width: 100%">

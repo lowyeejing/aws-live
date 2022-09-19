@@ -192,8 +192,8 @@ def CalculatePayRoll():
         bonusRate = 0.3
         totalWorkingHrs = workingHoursPerDay * totalWorkDays 
         salary = float(totalWorkingHrs * salaryPerHr) 
-        bonus = "{:.2f}".format(salary * bonusRate)
-        totalSalary = "{:.2f}".format(salary + bonus)
+        bonus = salary * bonusRate
+        totalSalary = (salary + bonus)
     
     else:
         print("Data Insufficient!!")
