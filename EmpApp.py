@@ -117,13 +117,6 @@ def leaveOutput():
     # difference between dates in timedelta
     # days = end_date - start_date
 
-    def days_between(d1, d2):
-        start_date = datetime.strptime(start_date, "%Y-%m-%d")
-        end_date = datetime.strptime(end_date, "%Y-%m-%d")
-        return abs((end_date - start_date).days)
-
-    days = days_between(start_date,end_date)
-
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
@@ -131,6 +124,13 @@ def leaveOutput():
     end_date = request.form['end_date']
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
+
+    def days_between(d1, d2):
+    start_date = datetime.strptime(start_date, "%Y-%m-%d")
+    end_date = datetime.strptime(end_date, "%Y-%m-%d")
+    return abs((end_date - start_date).days)
+
+    days = days_between(start_date,end_date)
 
     insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
