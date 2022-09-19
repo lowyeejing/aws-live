@@ -14,7 +14,7 @@ input, textarea {
 }
 body {
     /* background: url("LeaveBackground.jpeg") no-repeat center; */
-    background-image: url(LeaveBackground.jpeg);
+    /* background-image: url(LeaveBackground.jpeg); */
     background-size: cover;
     display: flex;
     justify-content: center;

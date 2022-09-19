@@ -19,7 +19,7 @@ p {
 
 body {
     /* background: url("HomepageBackground.jpeg") no-repeat center; */
-    background-image: url(static/img/HomepageBackground.jpeg);
+    /* background-image: url(static/img/HomepageBackground.jpeg); */
     background-size: cover;
 }
 
@@ -34,7 +34,7 @@ h1 {
 
 .main-block {
     /* background: url("HomepageBackground.jpeg") no-repeat center; */
-    background-image: url(HomepageBackground.jpeg);
+    /* background-image: url(HomepageBackground.jpeg); */
     display: flex;
     width: 100%;
     padding: 70px 50px;
