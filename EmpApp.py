@@ -125,8 +125,8 @@ def leaveOutput():
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
 
-    startDate = datetime.strptime(start_date, "%Y/%m/%d")
-    endDate = datetime.strptime(end_date, "%Y/%m/%d")
+    startDate = datetime.strptime(start_date, "%Y-%m-%d")
+    endDate = datetime.strptime(end_date, "%Y-%m-%d")
 
     days = (endDate - startDate) + 1
 
