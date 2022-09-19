@@ -111,11 +111,11 @@ def leave():
 def leaveOutput():
 
     # convert string to date object
-    start_date = datetime.strptime(end_date, "%Y/%m/%d")
-    end_date = datetime.strptime(end_date, "%Y/%m/%d")
+    # start_date = datetime.strptime(end_date, "%Y/%m/%d")
+    # end_date = datetime.strptime(end_date, "%Y/%m/%d")
 
     # difference between dates in timedelta
-    days = end_date - start_date
+    # days = end_date - start_date
 
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
@@ -164,7 +164,7 @@ def leaveOutput():
         cursor.close()
 
     print("all modification done...")
-    return render_template('LeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, ttldaysofleave = days)  
+    return render_template('LeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id)  
 
 #Payroll Calculator
 from datetime import datetime
@@ -192,8 +192,8 @@ def CalculatePayRoll():
         bonusRate = 0.3
         totalWorkingHrs = workingHoursPerDay * totalWorkDays 
         salary = float(totalWorkingHrs * salaryPerHr) 
-        bonus = "{:.2f}".format((salary * bonusRate))
-        totalSalary = "{:.2f}".format((salary + bonus))
+        bonus = "{:.2f}".format(salary * bonusRate)
+        totalSalary = "{:.2f}".format(salary + bonus)
     
     else:
         print("Data Insufficient!!")
