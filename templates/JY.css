@@ -103,8 +103,8 @@ a {
     font-weight: 500;
     margin: 25px 0 10px;
     color: #fff;
-    background: linear-gradient(#ff6100, rgba(255, 80, 80, 1));
-    box-shadow: 0 2px 12px -3px rgba(255, 80, 80, 1);
+    background: linear-gradient(rgb(223 200 255), #c196ff);
+    box-shadow: 0 2px 12px -3px #000000;
 }
 
 .card_info {
@@ -159,13 +159,32 @@ a {
 }
 
 .pic_button {
+    width: fit-content;
+    border: 2px solid black;
     border-radius: 4px;
-    padding: 0 15px;
     font-size: 18px;
     line-height: 36px;
     font-weight: 500;
+    background-color: white;
+    padding: 5px 30px;
     margin: 25px 0 10px;
-    color: #fff;
-    background: linear-gradient(#c7b1e7, rgb(225 204 255));
-    box-shadow: 0 2px 12px -3px #000000;
+    border-color: #c196ff;
+    color: rgb(181, 128, 255);
+}
+
+.pic_button:hover {
+    background-color: #c196ff;
+    color: white;
+}
+
+.back {
+    font-size: 30px;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: fit-content;
+    padding: 0px 30px;
+    margin: 25px 10px;
+    color: black;
 }

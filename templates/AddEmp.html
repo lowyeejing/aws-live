@@ -8,8 +8,9 @@
 
 <body>
     <div class="container">
+        <button style="border: none;background: none;"><a class="back" href="Homepage.html">&times;</a></button>
         <div class="card">
-            <h1 class="card_title">Employee Database</h1>
+            <h1 class="card_title" style="width:fit-content">Employee Database</h1>
             <form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
                 <div class="input">
                     <input type="file" class="input_field" accept="image/*" name="emp_image_file" id="file"
@@ -24,24 +25,19 @@
                     </script>
                 </div>
                 <div class="input">
-                    <input type="number" name="emp_id" class="input_field input_label" placeholder="Employee ID"
-                        required />
+                    <input type="number" name="emp_id" class="input_field input_label" placeholder="Employee ID" required />
                 </div>
                 <div class="input">
-                    <input type="text" name="first_name" class="input_field input_label" placeholder="Location"
-                        required />
+                    <input type="text" name="first_name" class="input_field input_label" placeholder="First Name" required />
                 </div>
                 <div class="input">
-                    <input type="text" name="last_name" class="input_field input_label" placeholder="Last Name"
-                        required />
+                    <input type="text" name="last_name" class="input_field input_label" placeholder="Last Name" required />
                 </div>
                 <div class="input">
-                    <input type="text" name="pri_skill" class="input_field input_label" placeholder="Primary Skills"
-                        required />
+                    <input type="text" name="pri_skill" class="input_field input_label" placeholder="Primary Skills" required />
                 </div>
                 <div class="input">
-                    <input type="text" name="location" class="input_field input_label" placeholder="Location"
-                        required />
+                    <input type="text" name="location" class="input_field input_label" placeholder="Location" required />
                 </div>
                 <button class="card_button" type="submit">Add Record</button>
             </form>
