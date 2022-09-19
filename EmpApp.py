@@ -182,7 +182,7 @@ def CalculatePayRoll():
 
     if 'emp_id' in request.form and 'workingHoursPerDay' in request.form and 'totalWorkDays' in request.form:
         emp_id = emp_id = int(request.form.get('emp_id'))
-        workingHoursPerDay = int(request.form.get('workingHoursPerDay'))
+        workingHoursPerDay = float(request.form.get('workingHoursPerDay'))
         totalWorkDays = int(request.form.get('totalWorkDays'))
 
 
