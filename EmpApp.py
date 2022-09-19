@@ -100,15 +100,15 @@ def att():
 def attOutput():
     return render_template('AttendanceOutput.html')
 
-#GetEmployee
-@app.route("/getemp", methods=['GET', 'POST'])
-def getemp():
-    return render_template('GetEmp.html')
+#SearchEmployee
+@app.route("/searchemp", methods=['GET', 'POST'])
+def searchemp():
+    return render_template('SearchEmp.html')
 
-#GetEmployeeOutput
-@app.route("/getemp/output", methods=['POST'])
-def getempOutput():
-    return render_template('GetEmpOutput.html')
+#SearchEmployeeOutput
+@app.route("/searchemp/output", methods=['POST'])
+def searchempOutput():
+    return render_template('SearchEmpOutput.html')
 
 #Leave
 @app.route("/leave", methods=['GET', 'POST'])
