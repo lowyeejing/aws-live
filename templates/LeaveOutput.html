@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="YJ.css">
     </head>
     <body>
-        <form class="decor" autocomplete="on" method = "POST" enctype="multipart/form-data">
+        <form action="/home" class="decor" autocomplete="on" method = "POST" enctype="multipart/form-data">
             <div class="form-left-decoration"></div>
             <div class="form-right-decoration"></div>
             <div class="circle"></div>
@@ -14,7 +14,7 @@
 				<h2>Your leave application has been added to the database.</h2><br>
 				<h3>{{ date.strftime("%A, %d %B, %Y at %H:%M") }}</h3><br>
                 <div class="btn-block">
-                    <button><a href="Homepage.html">BACK TO HOME</a></button>
+                    <button>BACK TO HOME</button>
                 </div>
             </div>
         </form>
