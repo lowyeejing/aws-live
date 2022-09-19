@@ -23,15 +23,12 @@ body {
 }
 
 h1 {
-    /* margin: 20px 0 20px 0; */
     height: auto;
-    /* font-weight: 400; */
     color: white;
     font-weight: bold;
     content: justify;
     align-items: center;
     justify-content: center;
-    /* opacity: 100%; */
 }
 
 .main-block {
