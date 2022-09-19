@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Leave</title>
+        <link rel="stylesheet" href="YJ.css">
+    </head>
+    <body>
+        <form class="decor" autocomplete="on" method = "POST" enctype="multipart/form-data">
+            <div class="form-left-decoration"></div>
+            <div class="form-right-decoration"></div>
+            <div class="circle"></div>
+            <div class="form-inner">
+                <h1>Leave Application</h1>
+                <div class="container">
+                    <div class="colums">
+                        <div>
+                            <label for="uname">Employee Name</label>
+                            <input type="text" placeholder="Enter Your Name" name="empName" required>
+                        </div>
+                        <div>
+                            <label for="uid">Employee ID</label>
+                            <input type="text" placeholder="Enter Your ID" name="empID" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="colums">
+                        <div>
+                            <label for="startdate">Leave Start Date</label>
+                            <input id="startdate" type="date" name="startdate" required/>
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div>
+                            <label for="enddate">Leave End Date</label>
+                            <input id="enddate" type="date" name="enddate" required/>
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    <br>
+                    <label for="ltype">Leave Type</label>
+                    <div class="grade-type">
+                        <div> 
+                            <input type="radio" value="none" id="radioOne" name="ltype" checked/>
+                            <label for="radioOne" class="radio">Medical Leave</label>
+                        </div>
+                        <div>
+                            <input type="radio" value="none" id="radioTwo" name="ltype" />
+                            <label for="radioTwo" class="radio">Maternity/Paternity Leave</label>
+                        </div>
+                        <div>
+                            <input type="radio" value="none" id="radioThree" name="ltype" />
+                            <label for="radioThree" class="radio">Holiday Leave</label>
+                        </div>
+                        <div>
+                            <input type="radio" value="none" id="radioFour" name="ltype" />
+                            <label for="radioFour" class="radio">Annual Leave</label>
+                        </div>
+                        <div>
+                            <input type="radio" value="none" id="radioFive" name="ltype" />
+                            <label for="radioFive" class="radio">Family Responsibility Leave</label>
+                        </div>
+                    </div>
+                    <br>
+                    <label for="file">Attachment</label>
+                    <form action="/action_page.php">
+                        <label for="myfile">Select a file:</label>
+                        <input type="file" id="myfile" name="emp_leave_file"><br>
+                    </form>
+                    <label for="comment">Comment</label>
+                    <textarea placeholder="Remarks" rows="5" name="comment"></textarea>
+                    <br>
+                    <div class="btn-block">
+                        <button><a href="LeaveOutput.html">SUBMIT</a></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
