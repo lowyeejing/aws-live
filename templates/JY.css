@@ -8,7 +8,8 @@ body {
   font-family: Roboto, sans-serif;
   color: #515a6e;
   background-color: #d5eafc;
-  background: url()
+  background: url(background_addEmp.jpg) no-repeat center;
+  background-size : cover;
   height: 100%;
   margin: 0;
   overflow: hidden;
