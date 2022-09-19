@@ -106,7 +106,8 @@ def leave():
 #LeaveOutput
 @app.route("/leave/output", methods=['POST'])
 def leaveOutput():
-    return render_template('LeaveOutput.html')  
+    return render_template('LeaveOutput.html', date = datetime.now())  
+
 #Payroll Calculator
 from datetime import datetime
 
