@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from datetime import datetime
+from datetime import datetime, timedelta
 from pymysql import connections
 import os
 import boto3
@@ -121,7 +121,7 @@ def leaveOutput():
     endDate = datetime.strptime(end_date, "%Y-%m-%d")
 
     difference = endDate - startDate
-    days = difference + 1
+    daysLeave = difference + timedelta(1)
 
     insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
@@ -162,7 +162,7 @@ def leaveOutput():
         cursor.close()
 
     print("all modification done...")
-    return render_template('LeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, ttldaysofleave = days)  
+    return render_template('LeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, ttldaysofleave = daysLeave)  
 
 #Payroll Calculator
 from datetime import datetime
