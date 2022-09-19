@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Employee Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}">
+</head>
+
+<body style="background: url('background_addEmp.jpg') no-repeat center; background-size: cover;">
+    <div class="container">
+        <button style="border: none;background: none;"><a class="back" href="/addemp/output">&times;</a></button>
+        <div class="card">
+            <h1 class="card_title" style="width:fit-content">Employee Database</h1>
+            <form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
+                <div class="input">
+                    <input type="file" class="input_field" accept="image/*" name="emp_image_file" id="file"
+                        onchange="loadFile(event)" style="display: none;" required>
+                    <label for="file" class="pic_button" style="cursor: pointer;">Upload Profile</label>
+                    <img id="output" width="200" />
+                    <script>
+                        var loadFile = function (event) {
+                            var image = document.getElementById('output');
+                            image.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                    </script>
+                </div>
+                <div class="input">
+                    <input type="text" name="emp_id" class="input_field input_label" placeholder="Employee ID" required />
+                </div>
+                <div class="input">
+                    <input type="text" name="first_name" class="input_field input_label" placeholder="First Name" required />
+                </div>
+                <div class="input">
+                    <input type="text" name="last_name" class="input_field input_label" placeholder="Last Name" required />
+                </div>
+                <div class="input">
+                    <input type="text" name="pri_skill" class="input_field input_label" placeholder="Primary Skills" required />
+                </div>
+                <div class="input">
+                    <input type="text" name="location" class="input_field input_label" placeholder="Location" required />
+                </div>
+                <button class="card_button" type="submit">Add Record</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

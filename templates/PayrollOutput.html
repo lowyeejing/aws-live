@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='PayrollOutput.css')}}">
+
+</head>
+
+<body>
+    <div class="main-block">
+        <!--<div class="left-part">
+        <div style="font-size: 80px;">
+        <i class="fa fa-money" style="color:rgb(253, 253, 253)" ></i>
+        </div>
+        <div style="font-size: 80px;">
+            <i class="far fa-clock" style="color:rgb(253, 253, 253)"></i> 
+        </div>
+        <div style="font-size: 80px;">
+            <i class="far fa-calendar-alt" style="color:rgb(253, 253, 253)"></i>
+        </div>
+      </div> -->
+
+        <!--<form action= "Homepage.html" > -->
+
+        <div class="form">
+            <h1><strong>Payroll Calculator Result</strong></h1>
+            <div class="info">
+                <p>Employee ID</p>
+                <h3>{{emp_id}}</h3>
+                <p>Total Working Hours</p>
+                <h3>{{workingHours}}</h3>
+                <p>Monthly Salary</p>
+                <h3>{{mthSalary}}</h3>
+                <p>Bonus Earned</p>
+                <h3>{{BonusEarned}}</h3>
+            </div>
+            <br>
+            <form action="http://18.234.115.251/" autocomplete="on" method = "GET">
+
+                <button>Back To Homepage</button>
+
+            </form>
+
+            <!--</form>-->
+        </div>
+
+    </div>
+</body>
+
+<!--<footer>
+    <div class="clr"></div>
+    <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by 
+       <a href="Homepage.html">STARRY NIGHT</a>.
+          </p>
+        </div>
+    </div>
+  </footer>-->
+
+</html>
