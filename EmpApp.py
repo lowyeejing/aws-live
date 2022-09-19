@@ -23,12 +23,17 @@ table = 'employee'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    return render_template('Homepage.html')
+
+
+@app.route("/payroll", methods=['GET', 'POST'])
+def payroll():
     return render_template('Payroll.html')
 
 
-@app.route("/about", methods=['POST'])
+@app.route("/payroll/output", methods=['POST'])
 def about():
-    return render_template('www.intellipaat.com')
+    return render_template('PayrollOutput.html')
 
 
 @app.route("/addemp", methods=['POST'])
