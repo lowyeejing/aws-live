@@ -126,9 +126,9 @@ def leaveOutput():
     emp_leave_file = request.files['emp_leave_file']
 
     def days_between(d1, d2):
-    start_date = datetime.strptime(start_date, "%Y-%m-%d")
-    end_date = datetime.strptime(end_date, "%Y-%m-%d")
-    return abs((end_date - start_date).days)
+    d1 = datetime.strptime(d1, "%Y-%m-%d")
+    d2 = datetime.strptime(d2, "%Y-%m-%d")
+    return abs((d2 - d1).days)
 
     days = days_between(start_date,end_date)
 
