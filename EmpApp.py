@@ -108,19 +108,15 @@ def leave():
 #LeaveOutput
 @app.route("/leave/output", methods=['POST'])
 def leaveOutput():
-    
-    DateTime dt = new DateTime()
-        if (DateTime.TryParse(Convert.ToString(Request.Form["date"]), out dt))
-        {
-            string start_date = dt.ToString("dd-MMM-yyyy");
-            string end_date = dt.ToString("dd-MMM-yyyy");
-        }
 
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    start_date = request.form['startdate']
-    end_date = request.form['enddate']
+    # start_date = request.form['startdate']
+    # end_date = request.form['enddate']
+    from datetime import datetime
+    startdate = datetime.datetime.strptime(request.form['startdate'],'%Y-%m-%d')
+    enddate = datetime.datetime.strptime(request.form['enddate'],'%Y-%m-%d')
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
 
