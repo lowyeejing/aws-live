@@ -113,11 +113,13 @@ def leaveOutput():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
+    start_date = ''
+    end_date = ''
     # start_date = request.form['startdate']
     # end_date = request.form['enddate']
-    LeaveTime = datetime.now()
-    startdate = LeaveTime.strptime(request.form['startdate'],'%Y-%m-%d')
-    enddate = LeaveTime.strptime(request.form['enddate'],'%Y-%m-%d')
+    # LeaveTime = datetime.now()
+    # startdate = LeaveTime.strptime(request.form['startdate'],'%Y-%m-%d')
+    # enddate = LeaveTime.strptime(request.form['enddate'],'%Y-%m-%d')
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
 
@@ -129,7 +131,7 @@ def leaveOutput():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, startdate, enddate, comment))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, comment))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
