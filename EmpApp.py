@@ -115,8 +115,8 @@ def leaveOutput():
     last_name = request.form['last_name']
     # start_date = ''
     # end_date = ''
-    start_date = request.form['startdate']
-    end_date = request.form['enddate']
+    start_date = request.form['start_date']
+    end_date = request.form['end_date']
     # LeaveTime = datetime.now()
     # startdate = LeaveTime.strptime(request.form['startdate'],'%Y-%m-%d')
     # enddate = LeaveTime.strptime(request.form['enddate'],'%Y-%m-%d')
