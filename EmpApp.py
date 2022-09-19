@@ -125,12 +125,10 @@ def leaveOutput():
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
 
-    def days_between(d1, d2):
-    d1 = datetime.strptime(d1, "%Y-%m-%d")
-    d2 = datetime.strptime(d2, "%Y-%m-%d")
-    return abs((d2 - d1).days)
+    startDate = datetime.strptime(start_date, "%Y/%m/%d")
+    endDate = datetime.strptime(end_date, "%Y/%m/%d")
 
-    days = days_between(start_date,end_date)
+    days = (endDate - startDate) + 1
 
     insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
