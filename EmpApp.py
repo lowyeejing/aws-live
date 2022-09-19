@@ -107,6 +107,40 @@ def leave():
 @app.route("/leave/output", methods=['POST'])
 def leaveOutput():
     return render_template('LeaveOutput.html')  
+#Payroll Calculator
+from datetime import datetime
+
+@app.route("/payroll", methods=['GET', 'POST'])
+def PayRoll():
+    return  render_template('Payroll.html', date = datetime.now())
+
+@app.route("/payroll/results", methods=['GET', 'POST'])
+def CalculatePayRoll():
+
+    cursor = db_conn.cursor()
+    
+
+    if 'emp_id' in request.form and 'workingHoursPerDay' in request.form and 'totalWorkDays' in request.form:
+        emp_id = emp_id = int(request.form.get('emp_id'))
+        workingHoursPerDay = int(request.form.get('workingHoursPerDay'))
+        totalWorkDays = int(request.form.get('totalWorkDays'))
+
+
+        #Monthly Salary Formula: totalWorkingHrs * salaryPerHr 
+
+        salaryPerHr = 50
+        bonusRate = 0.3
+        totalWorkingHrs = workingHoursPerDay * totalWorkDays 
+        salary = float(totalWorkingHrs * salaryPerHr) 
+        bonus = float(salary * bonusRate)
+        totalSalary =  float(salary + bonus)
+    
+    else:
+        print("Data Insufficient!!")
+        return render_template('Payroll.html', date=datetime.now())
+
+    return render_template('PayrollOutput.html',date=datetime.now(), emp_id=emp_id, mthSalary = totalSalary, workingHours = totalWorkingHrs ,BonusEarned=bonus)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
