@@ -139,16 +139,16 @@
                 <i class="far fa-calendar-alt" style="color:rgb(253, 253, 253)"></i>
             </div>
         </div>
-        <form action="PayrollOutput.html" method="POST">
+        <form form action="/payroll/output" autocomplete="on" method = "POST" enctype="multipart/form-data">
             <h1><strong>Payroll Calculator</strong></h1>
             <div class="info">
                 <p>Employee ID</p>
                 <input class="fname" type="text" name="name" placeholder="Enter Employee ID">
-                <p>Hourly Salary Rate</p>
-                <input type="number" name="name" placeholder="Total Working Hours">
-                <p>Working Day Per Week</p>
-                <!-- <input type="number" name="name" placeholder="Enter Total Working Hours"> -->
-                <div>
+                <p>Working Hours Per Day</p>
+                <input type="number" name="name" placeholder="Enter Working Hours Per Day">
+                <p>Total Working Day</p>
+                <input type="number" name="name" placeholder="Enter Total Working Day ">
+                <!-- <div>
                     <select name="name">
                         <option value="0" selected></option>
                         <option value="1">1</option>
@@ -159,7 +159,7 @@
                         <option value="6">6</option>
                         <option value="7">7</option>
                     </select>
-                </div>
+                </div> -->
             </div>
             <br>
             <button type="submit">Calculate</button>
