@@ -103,7 +103,7 @@ a {
     font-size: 18px;
     line-height: 36px;
     font-weight: 500;
-    margin: 10px 0 10px;
+    margin: 20px 0 0;
     color: #fff;
     background: linear-gradient(rgb(223 200 255), #c196ff);
     box-shadow: 0 2px 12px -3px #000000;
@@ -212,5 +212,5 @@ a {
 
 .input_check {
     font-size: 18px;
-    padding: 10px 5px;
+    padding: 15px 5px 0px;
 }
