@@ -103,7 +103,7 @@ a {
     font-size: 18px;
     line-height: 36px;
     font-weight: 500;
-    margin: 10px 0 10px;
+    margin: 20px 0 0;
     color: #fff;
     background: linear-gradient(rgb(223 200 255), #c196ff);
     box-shadow: 0 2px 12px -3px #000000;
@@ -212,5 +212,24 @@ a {
 
 .input_check {
     font-size: 18px;
-    padding: 10px 5px;
+    padding: 15px 5px 0px;
+}
+
+.search input {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    background: #f1f1f1;
+}
+
+.search button {
+    float: left;
+    padding: 10px;
+    background: #ffefef;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
 }
