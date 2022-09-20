@@ -121,6 +121,7 @@ def checkOut():
     check_out = check_out.strftime('%Y-%m-%d %H:%M:%S')
 
     select_sql = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
+    check_in = "SELECT check_in FROM attendance WHERE emp_id = %(emp_id)s"
     update_sql = "UPDATE attendance SET check_out = (%(check_out)s) WHERE emp_id = %(emp_id)s"
 
     cursor = db_conn.cursor()
