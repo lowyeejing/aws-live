@@ -216,6 +216,7 @@ def leave():
 #LeaveOutput
 @app.route("/leave/output", methods=['POST'])
 def leaveOutput():
+
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
@@ -239,8 +240,7 @@ def leaveOutput():
         return "Please select a file"
 
     try:
-
-        cursor.execute(insert_sql, {emp_id, first_name, last_name, start_date, end_date, leave_type, comment})
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, leave_type, comment))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         
