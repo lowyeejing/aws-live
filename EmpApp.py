@@ -198,7 +198,7 @@ def deleteEmpOutput():
    
 
     try:
-        cursor.execute(getRowRecord, {'emp_id':emp_id})
+        cursor.execute(getRowRecord, {'emp_id':int(emp_id)})
 
         for result in cursor:
             print(result)
