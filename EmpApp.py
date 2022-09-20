@@ -41,7 +41,7 @@ def AddEmpOutput():
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -49,7 +49,7 @@ def AddEmpOutput():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, emp_image_file))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Upload image file in S3 #
@@ -208,7 +208,7 @@ def leaveOutput():
         emp_name = "" + first_name + " " + last_name
         
         # Uplaod image file in S3 #
-        emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file.png"
+        emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file"
         s3 = boto3.resource('s3')
 
         try:
