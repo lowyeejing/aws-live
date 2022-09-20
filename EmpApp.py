@@ -28,7 +28,7 @@ def home():
 
 #ManageEmployee
 @app.route("/emp", methods=['GET', 'POST'])
-def home():
+def manageEmployee():
     return render_template('ManageEmployee.html')
 
 #AddEmployee
