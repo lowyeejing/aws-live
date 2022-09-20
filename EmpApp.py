@@ -173,8 +173,8 @@ def searchempOutput():
     finally:
         cursor.close()
     
-    getFile = getFile(bucket, emp_id)
-    return render_template("SearchEmpOutput.html",result=result, image = getFile)
+    # getFile = getFile(bucket, emp_id)
+    return render_template("SearchEmpOutput.html",result=result)
 
 #DeleteEmployee
 @app.route("/searchemp/delete", methods=['GET', 'POST'])
