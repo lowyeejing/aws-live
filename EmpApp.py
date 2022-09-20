@@ -176,7 +176,7 @@ def searchempOutput():
 
 #DeleteEmployee
 @app.route("/searchemp/delete", methods=['GET', 'POST'])
-def addEmp():
+def deleteEmp():
         #Get Employee
     emp_id = request.form['emp_id']
     # SELECT STATEMENT TO GET DATA FROM MYSQL
