@@ -178,8 +178,8 @@ def searchempOutput():
     return render_template("SearchEmpOutput.html",result=result)
 
 #DeleteEmployee
-@app.route("/searchemp/delete/<emp_id>", methods=['GET', 'POST'])
-def deleteEmp(emp_id):
+@app.route("/searchemp/delete", methods=['GET', 'POST'])
+def deleteEmp():
 
     emp_id = request.form['emp_id']
 
