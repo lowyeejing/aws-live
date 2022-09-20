@@ -26,6 +26,11 @@ table = 'employee'
 def home():
     return render_template('Homepage.html')
 
+#ManageEmployee
+@app.route("/emp", methods=['GET', 'POST'])
+def home():
+return render_template('ManageEmployee.html')
+
 #AddEmployee
 @app.route("/addemp", methods=['GET', 'POST'])
 def addEmp():
@@ -178,8 +183,13 @@ def searchempOutput():
     return render_template("SearchEmpOutput.html",result=result)
 
 #DeleteEmployee
-@app.route("/searchemp/delete", methods=['GET', 'POST'])
+@app.route("/deleteemp", methods=['GET', 'POST'])
 def deleteEmp():
+    return render_template('DeleteEmp.html')
+
+#DeleteEmployeeOutput
+@app.route("/deleteemp/output", methods=['GET', 'POST'])
+def deleteEmpOutput():
 
     emp_id = request.form['emp_id']
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Manage Employee</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Home.css')}}" />
+</head>
+
+<body style="background: url('/static/img/HomepageBackground.jpeg') no-repeat center; background-size: cover;">
+  <div class="main-block"
+    style="background: url('/static/img/HomepageBackground.jpeg') no-repeat center; background-size: cover;">
+    <div class="block-item left">
+      <h1>Employee Management System</h1>
+    </div>
+    <div class="block-item right">
+      <div class="button-container2">
+        <a href="/addemp">
+          <button class="btn function"><span>Add Employee</span></button>
+        </a>
+      </div>
+      <div class="button-container2">
+        <a href="/searchemp">
+          <button class="btn function"><span>Search Employee</span></button>
+        </a>
+      </div>
+      <div class="button-container2">
+        <a href="/deleteemp">
+          <button class="btn function"><span>Delete Employee</span></button>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

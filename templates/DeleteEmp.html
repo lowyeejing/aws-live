@@ -2,21 +2,28 @@
 <html>
 
 <head>
-    <title>Delete Employee</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}"/>
+	<title>Search Employee Information</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}" />
 </head>
 
 <body style="background: url('/static/img/background_addEmp.jpg') no-repeat center; background-size: cover;">
-    <div class="output">
-        <h1 class="output_title">Employee Deleted Successfully!</h1>
-        <h3>The Following Employee has been deleted from the database :</h3>
-        <h3>{{ name }}</h3><br>
-        <div style="text-align:center;">
-            <form action="/" autocomplete="on" method="GET">
-                <button type="submit" class="back_btn">Go Back</button>
-            </form>
-        </div>
-    </div>
+	<form class="container" style="height:fit-content" action="/deleteemp/output" autocomplete="on" method="POST">
+		<button style="border: none;background: none;">
+			<a class="back" href="/">&times;</a>
+		</button>
+		<div class="card">
+			<h1 class="card_title" style="width:fit-content">Delete Employee</h1>
+			<div class="search">
+				<div style="padding: 15px 0;">
+					<label>Employee ID:</label>
+				</div>
+				<input class="input_field input_label" type="text" name="emp_id"
+					style="width: -webkit-fill-available; padding-top: 10px;" autofocus><br><br>
+			</div>
+			<button type="submit" class="search_btn"
+				style="width:-webkit-fill-available;margin:0">Delete</button><br><br>
+		</div>
+	</form>
 </body>
 
 </html>

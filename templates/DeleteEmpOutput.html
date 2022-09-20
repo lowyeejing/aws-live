@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delete Employee Output</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}"/>
+</head>
+
+<body style="background: url('/static/img/background_addEmp.jpg') no-repeat center; background-size: cover;">
+    <div class="output">
+        <h1 class="output_title">Employee Deleted Successfully!</h1>
+        <h3>The Following Employee has been deleted from the database :</h3>
+        <h3>{{ name }}</h3><br>
+        <div style="text-align:center;">
+            <form action="/" autocomplete="on" method="GET">
+                <button type="submit" class="back_btn">Go Back</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
