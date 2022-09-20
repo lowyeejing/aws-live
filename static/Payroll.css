@@ -112,4 +112,18 @@ button:hover {
         margin-top: 2%;
         margin-left: 28%;
     }
+    
+    .back_btn {
+        width: fit-content;
+        font-size: 25px;
+        font-weight: 600;
+        top: 0;
+        right: 10px;
+        padding: 5px 35px;
+        border-color: #000000;
+        border-radius: 10px;
+        color: rgb(0, 0, 0);
+        background: white;
+    }
+
 }
