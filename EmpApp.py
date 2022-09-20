@@ -141,7 +141,7 @@ def checkOut():
         cursor.close()
 
     print("All modification done...")
-    return render_template('AttendanceOutput.html', id=emp_id, check_in=select_sql, check_out=check_out)
+    return render_template('AttendanceOutput.html', id=emp_id, check_in=check_in, check_out=check_out)
     
 #SearchEmployee
 @app.route("/searchemp")
