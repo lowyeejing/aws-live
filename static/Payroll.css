@@ -38,6 +38,18 @@ form {
     color: #fff;
 }
 
+.back {
+    font-size: 30px;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    padding: 0px 20px;
+    margin: 20px 10px;
+    color: white;
+}
+
 .fas {
     margin: 25px 10px 0;
     font-size: 72px;
@@ -113,16 +125,6 @@ button:hover {
         margin-left: 28%;
     }
     
-    .back {
-        font-size: 30px;
-        font-weight: 600;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: fit-content;
-        padding: 0px 20px;
-        margin: 20px 10px;
-        color: black;
-    }
+   
 
 }
