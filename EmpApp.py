@@ -178,14 +178,14 @@ def searchempOutput():
 @app.route("/searchemp/delete", methods=['GET', 'POST'])
 def deleteEmp():
         #Get Employee
-    emp_id = request.form['emp_id']
+    emp_id = request.form.get['emp_id']
     # SELECT STATEMENT TO GET DATA FROM MYSQL
     getRowRecord = "DELETE * FROM employee WHERE emp_id = %(emp_id)s"
 
     cursor = db_conn.cursor()
         
     try:
-        cursor.execute(getRowRecord, { 'emp_id': int(emp_id) })
+        cursor.execute(getRowRecord, { emp_id })
         # #FETCH ONLY ONE ROWS OUTPUT
         for result in cursor:
             print(result)
@@ -231,7 +231,7 @@ def leaveOutput():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, leave_type, comment))
+        cursor.execute(insert_sql, {emp_id, first_name, last_name, start_date, end_date, leave_type, comment})
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         
