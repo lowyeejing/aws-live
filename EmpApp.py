@@ -52,7 +52,7 @@ def AddEmpOutput():
         cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
-        # Uplaod image file in S3 #
+        # Upload image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
         s3 = boto3.resource('s3')
 
@@ -89,7 +89,26 @@ def att():
 #AttendanceOutput
 @app.route("/attendance/output", methods=['POST'])
 def attOutput():
-    return render_template('AttendanceOutput.html')
+    emp_id = request.form['emp_id']
+    attend_status = request.form['attend_status']
+    datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(insert_sql, (emp_id, attend_status, datetime))
+        db_conn.commit()
+        print("Data inserted into database...")
+    except Exception as e:
+        return str(e)
+
+    finally:
+        cursor.close()
+
+    print("All modification done...")
+    return render_template('Attendance.html', id=emp_id, datetime=datetime)
+    
 
 #SearchEmployee
 @app.route("/searchemp", methods=['GET', 'POST'])
