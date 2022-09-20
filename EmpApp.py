@@ -133,8 +133,8 @@ def checkOut():
             cursor.execute(update_sql, {'check_out': check_out ,'emp_id': emp_id})
             db_conn.commit()
             print("Check Out updated into MySQL")
-    #     except Exception as e:
-    #         return str(e)
+        except Exception as e:
+            return str(e)
 
     # except Exception as e:
     #     return str(e)
