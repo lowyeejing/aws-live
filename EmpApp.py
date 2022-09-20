@@ -133,7 +133,7 @@ def leaveOutput():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, ltype, comment))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, leave_type, comment))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         
