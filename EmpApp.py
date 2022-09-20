@@ -114,7 +114,7 @@ def leaveOutput():
     last_name = request.form['last_name']
     start_date = request.form['start_date']
     end_date = request.form['end_date']
-    leave_type = request.form['ltype']
+    leave_type = request.form['leave_type']
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
 
