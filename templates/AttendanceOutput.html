@@ -3,15 +3,17 @@
 
 <head>
     <title>Employee Attendance Output</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}" />
 </head>
 
 <body style="background: url('/static/img/background_attendance.jpg') no-repeat center; background-size: cover;">
     <div class="output">
         <h1 class="output_title" style="box-shadow: 0 0px 15px -5px #de6363;">Attendance Taken Successfully!</h1>
-        <h3>The Following Employee's Attendance has been added to the database :</h3>
-        <h3>{{ id }}</h3><br>
-        <h3>{{ datetime }}</h3><br>
+        <h3>The Following Employee's Attendance has been added to the database :</h3><br>
+        <h3>Employee ID : {{ id }}</h3>
+        <h3>Check In Time : {{ check_in }}</h3>
+        <h3>Check Out Time : {{ check_in }}</h3>
+
         <div style="text-align:center;">
             <form action="http://18.234.115.251/" autocomplete="on" method="GET">
                 <button type="submit" class="back_btn" style="border-color: #f699e9; color: #f699e9;">Go Back</button>

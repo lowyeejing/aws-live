@@ -86,20 +86,52 @@ def AddEmpOutput():
 def att():
     return render_template('Attendance.html')
 
-#AttendanceOutput
-@app.route("/attendance/output", methods=['POST'])
-def attOutput():
+#AttendanceCheckIn
+@app.route("/attendance/checkIn",methods=['GET','POST'])
+def checkIn():
     emp_id = request.form['emp_id']
-    attend_status = request.form['attend_status']
-    datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    check_in = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    check_out = 0
 
     insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s)"
     cursor = db_conn.cursor()
 
+    print ("Check in time:{}",check_in)
+
     try:
-        cursor.execute(insert_sql, (emp_id, attend_status, datetime))
+        cursor.execute(insert_sql, {emp_id, check_in, check_out)
         db_conn.commit()
-        print("Data inserted into database...")
+        print("Check In inserted into MySQL...")
+
+    except Exception as e:
+        return str(e)
+
+    finally:
+        cursor.close()
+        
+    return render_template("AttendanceOutput.html", id=emp_id, check_in=check_in)
+
+#AttendanceOutput
+@app.route("/attendance/output", methods=['GET', 'POST'])
+def checkOut():
+    emp_id = request.form['emp_id']
+    checkout = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    select_sql = "SELECT * FROM attendance WHERE emp_id = %(emp_id)s"
+    update_sql = "UPDATE INTO attendance SET check_out = %(checkout)s WHERE emp_id = %(emp_id)s"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(select_sql, (emp_id)
+        print("Data found from database...")
+
+        try:
+            cursor.execute(update_sql, {emp_id, check_out})
+            db_conn.commit()
+            print("Check Out updated into MySQL")
+        except Exception as e:
+            return str(e)
+
     except Exception as e:
         return str(e)
 
@@ -107,9 +139,8 @@ def attOutput():
         cursor.close()
 
     print("All modification done...")
-    return render_template('Attendance.html', id=emp_id, datetime=datetime)
+    return render_template('AttendanceOutput.html', id=emp_id, check_in=check_in, check_out=check_out)
     
-
 #SearchEmployee
 @app.route("/searchemp", methods=['GET', 'POST'])
 def searchemp():
