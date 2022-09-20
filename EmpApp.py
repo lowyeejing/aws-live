@@ -224,7 +224,7 @@ def leaveOutput():
     daysLeave = difference + timedelta(1)
     daysLeave = daysLeave.days
 
-    insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_leave_file.filename == "":
@@ -236,7 +236,7 @@ def leaveOutput():
         emp_name = "" + first_name + " " + last_name
         
         # Uplaod image file in S3 #
-        emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file"
+        emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file.png"
         s3 = boto3.resource('s3')
 
         try:
