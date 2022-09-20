@@ -195,10 +195,10 @@ def deleteEmpOutput():
 
     cursor = db_conn.cursor()
     getRowRecord = "DELETE * FROM employee WHERE emp_id = %(emp_id)s" 
-    db_conn.commit()
+   
 
     try:
-        cursor.execute(getRowRecord, (emp_id))
+        cursor.execute(getRowRecord, {'emp_id':emp_id})
 
         for result in cursor:
             print(result)
@@ -210,15 +210,19 @@ def deleteEmpOutput():
     finally:
         cursor.close()
 
-    emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-    s3 = boto3.resource('s3')
+    db_conn.commit()
+    return render_template("DeleteEmpOutput.html")  
 
-    try:
-        s3_client.delete_object(Bucket=custombucket, Key=emp_image_file_name_in_s3)
-        return render_template("DeleteEmp.html",result=result)
+    #Delete S3 picture
+    # emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+    # s3 = boto3.resource('s3')
 
-    except Exception as e:
-        return str(e)
+    # try:
+    #     s3_client.delete_object(Bucket=custombucket, Key=emp_image_file_name_in_s3)
+    #     return render_template("DeleteEmp.html",result=result)
+
+    # except Exception as e:
+    #     return str(e)
 
 #Leave
 @app.route("/leave", methods=['GET', 'POST'])
