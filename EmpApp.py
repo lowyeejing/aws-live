@@ -128,8 +128,14 @@ def checkOut():
         cursor.execute(select_sql, (emp_id))
         print("Data found from database...")
 
+        LoginTime= cursor.fetchall()
+       
+        for row in LoginTime:
+            formatted_login = row
+            print(formatted_login[2])
+            
         try:
-            cursor.execute(update_sql, (check_out, emp_id))
+            cursor.execute(update_sql, {'check_out': check_out ,'emp_id': emp_id})
             db_conn.commit()
             print("Check Out updated into MySQL")
         except Exception as e:
