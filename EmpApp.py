@@ -93,7 +93,7 @@ def checkIn():
     emp_id = request.form['emp_id']
     check_in = datetime.now()
     check_in = check_in.strftime('%Y-%m-%d %H:%M:%S')
-    check_out = 0
+    check_out = "0"
 
     insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s)"
     cursor = db_conn.cursor()
@@ -120,7 +120,7 @@ def checkOut():
     checkout = datetime.now()
     checkout = checkout.strftime('%Y-%m-%d %H:%M:%S')
 
-    select_sql = "SELECT * FROM attendance WHERE emp_id = %(emp_id)s"
+    select_sql = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
     update_sql = "UPDATE INTO attendance SET check_out = %(checkout)s WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
 
