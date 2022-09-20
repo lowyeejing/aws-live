@@ -122,17 +122,16 @@ def checkOut():
 
     select_sql = "SELECT check_in FROM employee WHERE emp_id = %(emp_id)s"
     update_sql = "UPDATE attendance SET check_out = (%(check_out)s) WHERE emp_id = %(emp_id)s"
+
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(select_sql, (emp_id))
-        print("Data found from database...")
-
+        cursor.execute(select_sql, (emp_id,check_in,check_out))
         LoginTime= cursor.fetchall()
        
         for row in LoginTime:
             formatted_login = row
-            print(formatted_login[2])
+            print(formatted_login[0])
             
         try:
             cursor.execute(update_sql, {'check_out': check_out ,'emp_id': emp_id})
@@ -180,14 +179,6 @@ def searchempOutput():
     
     getFile = getFile(bucket, emp_id)
     return render_template("SearchEmpOutput.html",result=result, image = getFile)
-
-#Test
-# def list_files(bucket, emp_id):
-#     contents = []
-#     fileName= "emp-id-" + str(emp_id) + "_image_file"
-#     for image in bucket.objects.all():
-#         contents.append(f'https://{bucket}.s3.amazonaws.com/{fileName})
-#     return contents
 
 #DeleteEmployee
 @app.route("/searchemp/delete", methods=['GET', 'POST'])
