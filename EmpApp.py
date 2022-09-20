@@ -93,7 +93,7 @@ def checkIn():
     emp_id = request.form['emp_id']
     check_in = datetime.now()
     check_in = check_in.strftime('%Y-%m-%d %H:%M:%S')
-    check_out = "0"
+    check_out = " "
 
     insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s)"
     cursor = db_conn.cursor()
@@ -117,11 +117,11 @@ def checkIn():
 @app.route("/attendance/output", methods=['GET', 'POST'])
 def checkOut():
     emp_id = request.form['emp_id']
-    checkout = datetime.now()
-    checkout = checkout.strftime('%Y-%m-%d %H:%M:%S')
+    check_out = datetime.now()
+    check_out = check_out.strftime('%Y-%m-%d %H:%M:%S')
 
     select_sql = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
-    update_sql = "UPDATE INTO attendance SET check_out = %(checkout)s WHERE emp_id = %(emp_id)s"
+    update_sql = "UPDATE attendance SET check_out = (%(check_out)s) WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
 
     try:
@@ -129,7 +129,7 @@ def checkOut():
         print("Data found from database...")
 
         try:
-            cursor.execute(update_sql, (emp_id, check_out))
+            cursor.execute(update_sql, (check_out, emp_id))
             db_conn.commit()
             print("Check Out updated into MySQL")
         except Exception as e:
