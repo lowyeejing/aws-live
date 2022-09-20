@@ -194,11 +194,11 @@ def deleteEmpOutput():
     emp_id = request.form['emp_id']
 
     cursor = db_conn.cursor()
-    getRowRecord = "DELETE * FROM employee WHERE emp_id = %(emp_id)s" 
+    delete_statement = "DELETE FROM employee WHERE emp_id = %(emp_id)s" 
    
 
     try:
-        cursor.execute(getRowRecord, {'emp_id':int(emp_id)})
+        cursor.execute(delete_statement, {'emp_id':int(emp_id)})
 
         for result in cursor:
             print(result)
