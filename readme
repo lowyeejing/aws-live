@@ -14,7 +14,9 @@ python3 EmpApp.py
 
 
 #Delete aws-live/
-rm -r aws-live/
+sudo rm -r aws-live/
+
+sudo python3 EmpApp.py
 
 
 
