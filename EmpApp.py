@@ -111,7 +111,7 @@ def checkIn():
     finally:
         cursor.close()
         
-    return render_template("AttendanceOutput.html", id=emp_id, check_in=check_in)
+    return render_template("AttendanceOutput.html", id=emp_id, check_in=check_in, check_out=check_out)
 
 #AttendanceOutput
 @app.route("/attendance/output", methods=['GET', 'POST'])
@@ -194,7 +194,7 @@ def deleteEmp():
     cursor = db_conn.cursor()
         
     try:
-        cursor.execute(getRowRecord, { emp_id })
+        cursor.execute(getRowRecord, (emp_id) )
         # #FETCH ONLY ONE ROWS OUTPUT
         for result in cursor:
             print(result)
