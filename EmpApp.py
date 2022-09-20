@@ -120,8 +120,10 @@ def checkOut():
     check_out = datetime.now()
     check_out = check_out.strftime('%Y-%m-%d %H:%M:%S')
 
-    # select_sql = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
     select_sql = "SELECT check_in FROM attendance WHERE emp_id = %(emp_id)s"
+
+    check_in = cursor.execute(select_sql, {'emp_id':int(emp_id)})
+
     update_sql = "UPDATE attendance SET check_out = (%(check_out)s) WHERE emp_id = %(emp_id)s"
 
     cursor = db_conn.cursor()
@@ -135,9 +137,6 @@ def checkOut():
             print("Check Out updated into MySQL")
         except Exception as e:
             return str(e)
-
-    # except Exception as e:
-    #     return str(e)
 
     finally:
         cursor.close()
