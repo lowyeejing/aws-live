@@ -125,10 +125,16 @@ def checkOut():
     update_sql = "UPDATE attendance SET check_out = (%(check_out)s) WHERE emp_id = %(emp_id)s"
 
     cursor = db_conn.cursor()
-    check_in = cursor.execute(select_sql, {'emp_id': emp_id})
+    # check_in = cursor.execute(select_sql, {'emp_id': emp_id})
 
     try:
         cursor.execute(select_sql, {'emp_id':emp_id})
+        
+        LoginTime= cursor.fetchall()
+       
+        for row in LoginTime:
+            check_in = row
+            print(check_in[0])
 
         try:
             cursor.execute(update_sql, {'check_out': check_out ,'emp_id': emp_id})
@@ -141,7 +147,7 @@ def checkOut():
         cursor.close()
 
     print("All modification done...")
-    return render_template('AttendanceOutput.html', id=emp_id, check_in=check_in, check_out=check_out)
+    return render_template('AttendanceOutput.html', id=emp_id, check_in=check_in[0], check_out=check_out)
     
 #SearchEmployee
 @app.route("/searchemp")
@@ -178,7 +184,7 @@ def searchempOutput():
 @app.route("/searchemp/delete", methods=['GET', 'POST'])
 def deleteEmp():
     #Get Employee
-    emp_id = request.form.get['emp_id']
+    emp_id = request.form['emp_id']
     # SELECT STATEMENT TO GET DATA FROM MYSQL
 
     cursor = db_conn.cursor()
