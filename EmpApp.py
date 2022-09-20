@@ -120,8 +120,8 @@ def checkOut():
     check_out = datetime.now()
     check_out = check_out.strftime('%Y-%m-%d %H:%M:%S')
 
-    select_sql = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
-    check_in = "SELECT check_in FROM attendance WHERE emp_id = %(emp_id)s"
+    # select_sql = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
+    select_sql = "SELECT check_in FROM attendance WHERE emp_id = %(emp_id)s"
     update_sql = "UPDATE attendance SET check_out = (%(check_out)s) WHERE emp_id = %(emp_id)s"
 
     cursor = db_conn.cursor()
@@ -179,14 +179,16 @@ def searchempOutput():
 #DeleteEmployee
 @app.route("/searchemp/delete", methods=['GET', 'POST'])
 def deleteEmp():
-        #Get Employee
+    #Get Employee
     emp_id = request.form.get['emp_id']
     # SELECT STATEMENT TO GET DATA FROM MYSQL
 
     cursor = db_conn.cursor()
-        
+    getRowRecord = "DELETE * FROM employee WHERE emp_id = %(emp_id)s" 
+    db_conn.commit()
+
     try:
-        cursor.execute(getRowRecord, (emp_id) )
+        cursor.execute(getRowRecord, (emp_id))
         # #FETCH ONLY ONE ROWS OUTPUT
         for result in cursor:
             print(result)
@@ -197,8 +199,16 @@ def deleteEmp():
         
     finally:
         cursor.close()
-    
-    return render_template("DeleteEmp.html",result=result)
+
+    emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+    s3 = boto3.resource('s3')
+
+    try:
+        s3_client.delete_object(Bucket=custombucket, Key=emp_image_file_name_in_s3)
+        return render_template("DeleteEmp.html",result=result)
+
+    except Exception as e:
+        return str(e)
 
 #Leave
 @app.route("/leave", methods=['GET', 'POST'])
