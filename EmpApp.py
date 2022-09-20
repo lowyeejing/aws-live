@@ -172,7 +172,16 @@ def searchempOutput():
     finally:
         cursor.close()
     
-    return render_template("SearchEmpOutput.html",result=result)
+    getFile = getFile(bucket, emp_id)
+    return render_template("SearchEmpOutput.html",result=result, image = getFile)
+
+#Test
+def list_files(bucket, emp_id):
+    contents = []
+    fileName= "emp-id-" + str(emp_id) + "_image_file"
+    for image in bucket.objects.all():
+        contents.append(f'https://{bucket}.s3.amazonaws.com/{fileName})
+    return contents
 
 #DeleteEmployee
 @app.route("/searchemp/delete", methods=['GET', 'POST'])
