@@ -164,7 +164,7 @@ def leaveOutput():
         cursor.close()
 
     print("all modification done...")
-    return render_template('LeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, ttldaysofleave = daysLeave)  
+    return render_template('LeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, ttldaysofleave = daysLeave, typeOfLeave = leave_type)  
 
 #Payroll Calculator
 from datetime import datetime
