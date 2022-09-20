@@ -215,7 +215,7 @@ def deleteEmpOutput():
 
     #Delete S3 picture
     emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-    s3 = boto3.resource('s3')
+    s3_client = boto3.client('s3')
 
     try:
         s3_client.delete_object(Bucket=custombucket, Key=emp_image_file_name_in_s3)
