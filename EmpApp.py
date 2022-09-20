@@ -89,6 +89,7 @@ def att():
 #AttendanceCheckIn
 @app.route("/attendance/checkIn",methods=['GET','POST'])
 def checkIn():
+
     emp_id = request.form['emp_id']
     check_in = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     check_out = 0
@@ -99,7 +100,7 @@ def checkIn():
     print ("Check in time:{}",check_in)
 
     try:
-        cursor.execute(insert_sql, {emp_id, check_in, check_out)
+        cursor.execute(insert_sql, {emp_id, check_in, check_out})
         db_conn.commit()
         print("Check In inserted into MySQL...")
 
