@@ -91,7 +91,8 @@ def att():
 def checkIn():
 
     emp_id = request.form['emp_id']
-    check_in = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    check_in = datetime.now()
+    check_in = check_in.strftime('%Y-%m-%d %H:%M:%S')
     check_out = 0
 
     insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s)"
@@ -116,7 +117,8 @@ def checkIn():
 @app.route("/attendance/output", methods=['GET', 'POST'])
 def checkOut():
     emp_id = request.form['emp_id']
-    checkout = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    checkout = datetime.now()
+    checkout = checkout.strftime('%Y-%m-%d %H:%M:%S')
 
     select_sql = "SELECT * FROM attendance WHERE emp_id = %(emp_id)s"
     update_sql = "UPDATE INTO attendance SET check_out = %(checkout)s WHERE emp_id = %(emp_id)s"
@@ -172,6 +174,31 @@ def searchempOutput():
     
     return render_template("SearchEmpOutput.html",result=result)
 
+#DeleteEmployee
+@app.route("/searchemp/delete", methods=['GET', 'POST'])
+def addEmp():
+        #Get Employee
+    emp_id = request.form['emp_id']
+    # SELECT STATEMENT TO GET DATA FROM MYSQL
+    getRowRecord = "DELETE * FROM employee WHERE emp_id = %(emp_id)s"
+
+    cursor = db_conn.cursor()
+        
+    try:
+        cursor.execute(getRowRecord, { 'emp_id': int(emp_id) })
+        # #FETCH ONLY ONE ROWS OUTPUT
+        for result in cursor:
+            print(result)
+        
+
+    except Exception as e:
+        return str(e)
+        
+    finally:
+        cursor.close()
+    
+    return render_template("DeleteEmp.html",result=result)
+
 #Leave
 @app.route("/leave", methods=['GET', 'POST'])
 def leave():
@@ -196,7 +223,7 @@ def leaveOutput():
     daysLeave = difference + timedelta(1)
     daysLeave = daysLeave.days
 
-    insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_leave_file.filename == "":
