@@ -82,7 +82,7 @@ def AddEmpOutput():
     return render_template('AddEmpOutput.html', name=emp_name)
 
 #Attendance
-@app.route("/attendance", methods=['GET', 'POST'])
+@app.route("/attendance")
 def att():
     return render_template('Attendance.html')
 
@@ -101,7 +101,7 @@ def checkIn():
     print ("Check in time:{}",check_in)
 
     try:
-        cursor.execute(insert_sql, {emp_id, check_in, check_out})
+        cursor.execute(insert_sql, (emp_id, check_in, check_out))
         db_conn.commit()
         print("Check In inserted into MySQL...")
 
@@ -125,11 +125,11 @@ def checkOut():
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(select_sql, {emp_id})
+        cursor.execute(select_sql, (emp_id))
         print("Data found from database...")
 
         try:
-            cursor.execute(update_sql, {emp_id, check_out})
+            cursor.execute(update_sql, (emp_id, check_out))
             db_conn.commit()
             print("Check Out updated into MySQL")
         except Exception as e:
