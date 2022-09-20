@@ -211,18 +211,18 @@ def deleteEmpOutput():
         cursor.close()
 
     db_conn.commit()
-    return render_template("DeleteEmpOutput.html")  
+    #return render_template("DeleteEmpOutput.html", emp_id = emp_id)  
 
-    #Delete S3 picture
-    # emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-    # s3 = boto3.resource('s3')
+    Delete S3 picture
+    emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+    s3 = boto3.resource('s3')
 
-    # try:
-    #     s3_client.delete_object(Bucket=custombucket, Key=emp_image_file_name_in_s3)
-    #     return render_template("DeleteEmp.html",result=result)
+    try:
+        s3_client.delete_object(Bucket=custombucket, Key=emp_image_file_name_in_s3)
+        return render_template("DeleteEmpOutput.html", emp_id = emp_id)
 
-    # except Exception as e:
-    #     return str(e)
+    except Exception as e:
+        return str(e)
 
 #Leave
 @app.route("/leave", methods=['GET', 'POST'])
