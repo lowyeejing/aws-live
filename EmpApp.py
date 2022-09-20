@@ -127,7 +127,7 @@ def checkOut():
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(select_sql, (emp_id))
+        cursor.execute(select_sql, {'emp_id':int(emp_id)})
 
         try:
             cursor.execute(update_sql, {'check_out': check_out ,'emp_id': emp_id})
