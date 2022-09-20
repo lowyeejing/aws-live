@@ -122,14 +122,13 @@ def checkOut():
 
     select_sql = "SELECT check_in FROM attendance WHERE emp_id = %(emp_id)s"
 
-    check_in = cursor.execute(select_sql, {'emp_id':int(emp_id)})
-
     update_sql = "UPDATE attendance SET check_out = (%(check_out)s) WHERE emp_id = %(emp_id)s"
 
     cursor = db_conn.cursor()
+    check_in = cursor.execute(select_sql, {'emp_id': emp_id})
 
     try:
-        cursor.execute(select_sql, {'emp_id':int(emp_id)})
+        cursor.execute(select_sql, {'emp_id':emp_id})
 
         try:
             cursor.execute(update_sql, {'check_out': check_out ,'emp_id': emp_id})
