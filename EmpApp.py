@@ -182,7 +182,6 @@ def deleteEmp():
         #Get Employee
     emp_id = request.form.get['emp_id']
     # SELECT STATEMENT TO GET DATA FROM MYSQL
-    getRowRecord = "DELETE * FROM employee WHERE emp_id = %(emp_id)s"
 
     cursor = db_conn.cursor()
         
