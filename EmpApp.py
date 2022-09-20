@@ -123,7 +123,7 @@ def checkOut():
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(select_sql, (emp_id)
+        cursor.execute(select_sql, {emp_id})
         print("Data found from database...")
 
         try:
