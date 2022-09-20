@@ -3,7 +3,7 @@
 
 <head>
 	<title>Search Employee Output</title>
-	<link rel="stylesheet" href="../static/JY.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}" />
 </head>
 
 <body style="background: url('/static/img/background_display.jpeg') no-repeat center; background-size: cover; opacity: 80%;">
@@ -17,6 +17,11 @@
 		<h3>{{ location }}</h3><br>
 		<h3>{{ image_url }}</h3><br>
 		<div style="text-align:center;">
+			<form action="/searchemp/delete" autocomplete="on" method="GET">
+				<button type="submit" class="back_btn"
+					style="border-color: #ffab46; border-radius: 10px; color: rgb(255 189 89);">Delete Employee</button>
+			</form>
+			<br>
 			<form action="/searchemp" autocomplete="on" method="GET">
 				<button type="submit" class="back_btn"
 					style="border-color: #ffab46; border-radius: 10px; color: rgb(255 189 89);">Go Back</button>

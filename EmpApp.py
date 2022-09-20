@@ -52,7 +52,7 @@ def AddEmpOutput():
         cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
-        # Uplaod image file in S3 #
+        # Upload image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
         s3 = boto3.resource('s3')
 
@@ -86,11 +86,61 @@ def AddEmpOutput():
 def att():
     return render_template('Attendance.html')
 
-#AttendanceOutput
-@app.route("/attendance/output", methods=['POST'])
-def attOutput():
-    return render_template('AttendanceOutput.html')
+#AttendanceCheckIn
+@app.route("/attendance/checkIn",methods=['GET','POST'])
+def checkIn():
+    emp_id = request.form['emp_id']
+    check_in = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    check_out = 0
 
+    insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    print ("Check in time:{}",check_in)
+
+    try:
+        cursor.execute(insert_sql, {emp_id, check_in, check_out)
+        db_conn.commit()
+        print("Check In inserted into MySQL...")
+
+    except Exception as e:
+        return str(e)
+
+    finally:
+        cursor.close()
+        
+    return render_template("AttendanceOutput.html", id=emp_id, check_in=check_in)
+
+#AttendanceOutput
+@app.route("/attendance/output", methods=['GET', 'POST'])
+def checkOut():
+    emp_id = request.form['emp_id']
+    checkout = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    select_sql = "SELECT * FROM attendance WHERE emp_id = %(emp_id)s"
+    update_sql = "UPDATE INTO attendance SET check_out = %(checkout)s WHERE emp_id = %(emp_id)s"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(select_sql, (emp_id)
+        print("Data found from database...")
+
+        try:
+            cursor.execute(update_sql, {emp_id, check_out})
+            db_conn.commit()
+            print("Check Out updated into MySQL")
+        except Exception as e:
+            return str(e)
+
+    except Exception as e:
+        return str(e)
+
+    finally:
+        cursor.close()
+
+    print("All modification done...")
+    return render_template('AttendanceOutput.html', id=emp_id, check_in=check_in, check_out=check_out)
+    
 #SearchEmployee
 @app.route("/searchemp")
 def searchemp():

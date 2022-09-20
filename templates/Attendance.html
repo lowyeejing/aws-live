@@ -3,28 +3,24 @@
 
 <head>
     <title>Employee Attendance</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}" />
 </head>
 
-<body  style="background: url('/static/img/background_attendance.jpg') no-repeat center; background-size: cover;">
+<body style="background: url('/static/img/background_attendance.jpg') no-repeat center; background-size: cover;">
     <div class="container" style="height:fit-content">
-        <button style="border: none;background: none;"><a class="back" href="/">&times;</a></button>
+        <button style="border: none;background: none;"><a class="back" href="http://18.234.115.251/">&times;</a></button>
         <div class="card">
             <h1 class="card_title" style="padding: 0 0 15px 0; width:fit-content">Attendance Database</h1>
             <form action="/attendance/output" autocomplete="on" method="POST" enctype="multipart/form-data">
                 <div class="input">
-                    <input type="text" name="emp_id" class="input_field input_label" placeholder="Employee ID"
-                        required />
+                    <input type="text" name="emp_id" class="input_field input_label" placeholder="Employee ID" required />
                 </div>
                 <div class="input_check">
-                    <input type="radio" id="checkIn" name="attend_status" value="Check In" required>
-                    <label for="checkIn">Check In</label><br>
+                    <button type="submit" formaction="/attendance/checkIn" class="card_button" style="background: linear-gradient(rgb(255 200 249), #f758ff);">Check In</button>
+                    <a href="/attendance/output">
+                        <button type="submit" class="card_button" style="background: linear-gradient(rgb(255 200 249), #f758ff);">Check Out</button>
+                    </a>
                 </div>
-                <div class="input_check">
-                    <input type="radio" id="checkOut" name="attend_status" value="Check Out">
-                    <label for="checkOut">Check Out</label><br>
-                </div>
-                <button class="card_button attendance_btn" type="submit">Submit</button>
             </form>
         </div>
     </div>
