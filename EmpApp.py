@@ -114,6 +114,7 @@ def leaveOutput():
     last_name = request.form['last_name']
     start_date = request.form['start_date']
     end_date = request.form['end_date']
+    leave_type = request.form['ltype']
     comment = request.form['comment']
     emp_leave_file = request.files['emp_leave_file']
 
@@ -124,7 +125,7 @@ def leaveOutput():
     daysLeave = difference + timedelta(1)
     daysLeave = daysLeave.days
 
-    insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_leave_file.filename == "":
@@ -132,7 +133,7 @@ def leaveOutput():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, comment))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, ltype, comment))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         
