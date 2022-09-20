@@ -157,16 +157,14 @@ def searchemp():
 #SearchEmployeeOutput
 @app.route("/searchemp/output", methods=['GET','POST'])
 def searchempOutput():
-    #Get Employee
-    emp_id = request.form['emp_id']
-    # SELECT STATEMENT TO GET DATA FROM MYSQL
-    getRowRecord = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
 
+    emp_id = request.form['emp_id']
+    getRowRecord = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
         
     try:
         cursor.execute(getRowRecord, { 'emp_id': int(emp_id) })
-        # #FETCH ONLY ONE ROWS OUTPUT
+
         for result in cursor:
             print(result)
         
@@ -177,15 +175,13 @@ def searchempOutput():
     finally:
         cursor.close()
     
-    # getFile = getFile(bucket, emp_id)
     return render_template("SearchEmpOutput.html",result=result)
 
 #DeleteEmployee
-@app.route("/searchemp/delete", methods=['GET', 'POST'])
-def deleteEmp():
-    #Get Employee
+@app.route("/searchemp/delete/<emp_id>", methods=['GET', 'POST'])
+def deleteEmp(emp_id):
+
     emp_id = request.form['emp_id']
-    # SELECT STATEMENT TO GET DATA FROM MYSQL
 
     cursor = db_conn.cursor()
     getRowRecord = "DELETE * FROM employee WHERE emp_id = %(emp_id)s" 
@@ -193,7 +189,7 @@ def deleteEmp():
 
     try:
         cursor.execute(getRowRecord, (emp_id))
-        # #FETCH ONLY ONE ROWS OUTPUT
+
         for result in cursor:
             print(result)
         
