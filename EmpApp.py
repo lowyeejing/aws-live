@@ -105,7 +105,7 @@ def checkIn():
     select_sql = "SELECT emp_id FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
 
-    if(cursor.execute(select_sql, {'emp_id':int(emp_id)}):
+    if(cursor.execute(select_sql, {'emp_id':int(emp_id)}) == ''):
         return render_template('Error.html', msg=str(e))
 
     insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s)"
