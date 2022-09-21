@@ -96,7 +96,7 @@ form {
 .form-inner input,
 .form-inner textarea {
     /* display: block; */
-    /* width: 100%; */
+    width: 100%;
     padding: 10px 20px;
     margin: 12px 0px;
     border: none;
