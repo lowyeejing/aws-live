@@ -78,7 +78,9 @@ def AddEmpOutput():
                 emp_image_file_name_in_s3)
 
         except Exception as e:
-            return str(e)
+            return render_template('Error.html', msg=str(e))
+    except Exception as e:
+    return render_template('Error.html', msg=str(e))
 
     finally:
         cursor.close()
@@ -146,8 +148,9 @@ def checkOut():
             db_conn.commit()
             print("Check Out updated into MySQL")
         except Exception as e:
-            return str(e)
-
+            return render_template('Error.html', msg=str(e))
+    except Exception as e:
+        return render_template('Error.html', msg=str(e))
     finally:
         cursor.close()
 
@@ -170,12 +173,15 @@ def searchempOutput():
     try:
         cursor.execute(getRowRecord, { 'emp_id': int(emp_id) })
 
+        if(emp_id='') {
+            return render_template('Error.html', msg=str(e))
+        }
+
         for result in cursor:
             print(result)
-        
 
     except Exception as e:
-        return str(e)
+        return render_template('Error.html', msg=str(e))
         
     finally:
         cursor.close()
@@ -203,9 +209,8 @@ def deleteEmpOutput():
         for result in cursor:
             print(result)
         
-
     except Exception as e:
-        return str(e)
+        return render_template('Error.html', msg=str(e))
         
     finally:
         cursor.close()
@@ -222,7 +227,7 @@ def deleteEmpOutput():
         return render_template("DeleteEmpOutput.html", emp_id = emp_id)
 
     except Exception as e:
-        return str(e)
+        return render_template('Error.html', msg=str(e))
 
 #Leave
 @app.route("/leave", methods=['GET', 'POST'])
@@ -281,7 +286,9 @@ def leaveOutput():
                 emp_leave_file_name_in_s3)
 
         except Exception as e:
-            return str(e)
+            return render_template('Error.html', msg=str(e))
+    except Exception as e:
+        return render_template('Error.html', msg=str(e))
 
     finally:
         cursor.close()
@@ -301,13 +308,11 @@ def PayRoll():
 def CalculatePayRoll():
 
     cursor = db_conn.cursor()
-    
 
     if 'emp_id' in request.form and 'workingHoursPerDay' in request.form and 'totalWorkDays' in request.form:
         emp_id = emp_id = int(request.form.get('emp_id'))
         workingHoursPerDay = float(request.form.get('workingHoursPerDay'))
         totalWorkDays = int(request.form.get('totalWorkDays'))
-
 
         #Monthly Salary Formula: totalWorkingHrs * salaryPerHr 
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Display Error</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}"/> -->
+    <link rel="stylesheet" href="../static/JY.css">
+
+</head>
+
+<!-- <body style="background: url('/static/img/background_addEmp.jpg') no-repeat center; background-size: cover;"> -->
+
+<body style="background: url('../static/img/background_error.jpg') no-repeat center; background-size: cover;">
+    <div class="output">
+        <h1 class="output_title">Error Page</h1>
+        <h3>You had encountered an error message :</h3>
+        <h3>{{ msg }}</h3><br>
+        <div style="text-align:center;">
+            <form action="/" autocomplete="on" method="GET">
+                <button type="submit" class="back_btn" style="border-color: #87858b; color: rgb(135 134 137);">Go Back</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
