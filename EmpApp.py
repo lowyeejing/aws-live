@@ -209,16 +209,17 @@ def deleteEmpOutput():
 
     emp_id = request.form['emp_id']
 
-    delete_statement = "DELETE FROM employee WHERE emp_id = %(emp_id)s" 
+    select_sql = "SELECT emp_id FROM employee WHERE emp_id = %(emp_id)s"
+    delete_statement = "DELETE FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
     
-    if(cursor.execute(delete_statement, {'emp_id':int(emp_id)}) == ''):
+    if(cursor.execute(select_sql, {'emp_id':int(emp_id)}) == ''):
         return render_template('Error.html', msg=str(e))
     
     try:
         cursor.execute(delete_statement, {'emp_id':int(emp_id)})
 
-        if(cursor.execute(delete_statement, {'emp_id':int(emp_id)}) == ''):
+        if(cursor.execute(select_sql, {'emp_id':int(emp_id)}) == ''):
             return render_template('Error.html', msg=str(e))
 
         for result in cursor:
@@ -231,7 +232,6 @@ def deleteEmpOutput():
         cursor.close()
 
     db_conn.commit()
-    #return render_template("DeleteEmpOutput.html", emp_id = emp_id)  
 
     #Delete S3 picture
     emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
