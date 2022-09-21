@@ -93,3 +93,7 @@ i {
 a {
     text-decoration: none;
 }
+
+.mgmt_text {
+    text-shadow: 4px 3px 7px darkgrey;
+}
