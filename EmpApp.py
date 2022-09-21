@@ -240,10 +240,10 @@ def updateEmpOutput():
                 custombucket,
                 emp_image_file_name_in_s3)
 
-        except Exception as e:
-            return render_template('Error.html', msg=str(e))
-    except Exception as e:
-        return render_template('Error.html', msg=str(e))
+    #     except Exception as e:
+    #         return render_template('Error.html', msg=str(e))
+    # except Exception as e:
+    #     return render_template('Error.html', msg=str(e))
 
     finally:
         cursor.close()
