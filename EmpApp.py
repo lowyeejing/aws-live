@@ -210,7 +210,7 @@ def updateEmpOutput():
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
 
-    update_sql = "UPDATE INTO employee SET first_name = %(first_name)s , last_name = %(last_name)s , pri_skill = %(pri_skill)s , location = %(location)s , emp_image_file = %(emp_image_file)s) WHERE emp_id = %(emp_id)s"
+    update_sql = "UPDATE employee SET first_name = %(first_name)s , last_name = %(last_name)s , pri_skill = %(pri_skill)s , location = %(location)s , emp_image_file = %(emp_image_file)s) WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
