@@ -341,7 +341,7 @@ def CalculatePayRoll():
 
     return render_template('PayrollOutput.html',date=datetime.now(), emp_id=emp_id, mthSalary = totalSalary, workingHours = totalWorkingHrs ,BonusEarned=bonus)
 
-@app.errorhandler(Excecption)
+@app.errorhandler(Exception)
 def handle_exception(e):
     return render_template('Error.html', msg=str(e))
 
