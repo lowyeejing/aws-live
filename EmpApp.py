@@ -80,7 +80,7 @@ def AddEmpOutput():
         except Exception as e:
             return render_template('Error.html', msg=str(e))
     except Exception as e:
-    return render_template('Error.html', msg=str(e))
+        return render_template('Error.html', msg=str(e))
 
     finally:
         cursor.close()
