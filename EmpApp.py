@@ -245,10 +245,11 @@ def updateEmpOutput():
     # except Exception as e:
     #     return render_template('Error.html', msg=str(e))
 
-    finally:
-        cursor.close()
+    # finally:
+    #     cursor.close()
 
-    db_conn.commit()
+    cursor.close()
+    
     print("all modification done...")
     return render_template('UpdateEmpOutput.html', name=emp_name)
 
