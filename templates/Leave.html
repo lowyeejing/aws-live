@@ -46,7 +46,7 @@
                 <label>Leave Type</label>
                 <div class="grade-type">
                     <div>
-                        <input type="radio" value="Medical Leave" id="radioOne" name="leave_type"/>
+                        <input type="radio" value="Medical Leave" id="radioOne" name="leave_type" required/>
                         <label for="radioOne" class="radio">Medical Leave</label>
                     </div>
                     <div>
@@ -70,7 +70,7 @@
                 <label for="file">Attachment</label>
                 <form action="/action_page.php">
                     <label for="myfile">Select a file:</label>
-                    <input type="file" id="myfile" name="emp_leave_file">
+                    <input type="file" id="myfile" name="emp_leave_file" required>
                 </form>
                 <label for="comment">Comment</label>
                 <textarea placeholder="Remarks" rows="2" name="comment"></textarea>
