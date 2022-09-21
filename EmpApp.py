@@ -178,7 +178,7 @@ def searchempOutput():
     getRowRecord = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
 
-    if((cursor.execute(getRowRecord, {'emp_id':int(emp_id)}) == '') OR (cursor.execute(getRowRecord, {'emp_id':int(emp_id)}) is None)):
+    if((cursor.execute(getRowRecord, {'emp_id':int(emp_id)}) == '') | (cursor.execute(getRowRecord, {'emp_id':int(emp_id)}) is None)):
         return render_template('Error.html', msg=str(e))
 
     try:
