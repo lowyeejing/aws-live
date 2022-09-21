@@ -95,7 +95,7 @@ form {
 }
 .form-inner input,
 .form-inner textarea {
-    display: block;
+    /* display: block; */
     width: 100%;
     padding: 10px 20px;
     margin: 12px 0px;
@@ -131,9 +131,9 @@ a{
         width: 50%;
     }
 }
-input[type=radio] {
+/* input[type=radio] {
     display: none;
-}
+} */
 label.radio {
     position: relative;
     display: inline-block;
