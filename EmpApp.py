@@ -186,14 +186,13 @@ def searchempOutput():
 
         for result in cursor:
             print(result)
+            return render_template("SearchEmpOutput.html",result=result)
 
     except Exception as e:
         return render_template('Error.html', msg=str(e))
         
     finally:
         cursor.close()
-    
-    return render_template("SearchEmpOutput.html",result=result)
 
 #DeleteEmployee
 @app.route("/deleteemp", methods=['GET', 'POST'])
