@@ -105,7 +105,7 @@ def checkIn():
     select_sql = "SELECT emp_id FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
 
-    if(cursor.execute(select_sql, (emp_id)) == ''):
+    if(cursor.execute(select_sql, {'emp_id':int(emp_id)}):
         return render_template('Error.html', msg=str(e))
 
     insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s)"
@@ -114,6 +114,7 @@ def checkIn():
     try:
         cursor.execute(insert_sql, (emp_id, check_in, check_out))
         db_conn.commit()
+
         print("Check In inserted into MySQL...")
 
     except Exception as e:
@@ -180,9 +181,6 @@ def searchempOutput():
     try:
         cursor.execute(getRowRecord, { 'emp_id': int(emp_id) })
 
-        if(cursor.execute(getRowRecord, (emp_id)) == ''):
-            return render_template('Error.html', msg=str(e))
-
         for result in cursor:
             print(result)
 
@@ -213,9 +211,6 @@ def deleteEmpOutput():
     
     try:
         cursor.execute(delete_statement, {'emp_id':int(emp_id)})
-        
-        if(cursor.execute(delete_statement, (emp_id)) == ''):
-            return render_template('Error.html', msg=str(e))
 
         for result in cursor:
             print(result)
