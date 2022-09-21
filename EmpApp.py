@@ -217,8 +217,7 @@ def updateEmpOutput():
         return "Please select a file"
 
     try:
-        #emp_id, first_name, last_name, pri_skill, location, emp_image_file
-        #{'emp_id': emp_id, 'first_name': first_name, 'last_name': last_name, 'pri_skill': pri_skill, 'location': location, 'emp_image_file': emp_image_file}
+        
         cursor.execute(update_sql, ({'first_name': first_name, 'last_name': last_name, 'pri_skill': pri_skill, 'location': location, 'emp_image_file': emp_image_file, 'emp_id': emp_id}))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
@@ -243,11 +242,11 @@ def updateEmpOutput():
                 emp_image_file_name_in_s3)
 
         except Exception as e:
-            return str(e)
-            #return render_template('Error.html', msg=str(e))
+            #return str(e)
+            return render_template('Error.html', msg=str(e))
     except Exception as e:
-        return str(e)
-        #return render_template('Error.html', msg=str(e))
+        #return str(e)
+        return render_template('Error.html', msg=str(e))
 
     finally:
         cursor.close()
