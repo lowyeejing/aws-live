@@ -3,7 +3,7 @@
 
 <head>
     <title>Leave</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='YJ.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='YJ.css')}}" />
 </head>
 
 <body style="background: url('/static/img/LeaveBackground.jpeg') no-repeat center; background-size: cover;">
@@ -46,24 +46,34 @@
                 <label>Leave Type</label>
                 <div class="grade-type">
                     <div>
-                        <input type="radio" value="Medical Leave" id="radioOne" name="leave_type" required="required"/>
-                        <label for="radioOne" class="radio">Medical Leave</label>
+                        <label class="radio">
+                            <input type="radio" value="Medical Leave" id="radioOne" name="leave_type"
+                                required="required">Medical Leave
+                        </label>
                     </div>
                     <div>
-                        <input type="radio" value="Maternity/Paternity Leave" id="radioTwo" name="leave_type" />
-                        <label for="radioTwo" class="radio">Maternity/Paternity Leave</label>
+
+                        <label for="radioTwo" class="radio">
+                            <input type="radio" value="Maternity/Paternity Leave" id="radioTwo"
+                                name="leave_type">Maternity/Paternity Leave
+                        </label>
                     </div>
                     <div>
-                        <input type="radio" value="Holiday Leave" id="radioThree" name="leave_type" />
-                        <label for="radioThree" class="radio">Holiday Leave</label>
+
+                        <label for="radioThree" class="radio">
+                            <input type="radio" value="Holiday Leave" id="radioThree" name="leave_type"> Holiday Leave
+                        </label>
                     </div>
                     <div>
-                        <input type="radio" value="Annual Leave" id="radioFour" name="leave_type"  />
-                        <label for="radioFour" class="radio">Annual Leave</label>
+
+                        <label for="radioFour" class="radio">
+                            <input type="radio" value="Annual Leave" id="radioFour" name="leave_type">Annual
+                            Leave</label>
                     </div>
                     <div>
-                        <input type="radio" value="Family Responsibility Leave" id="radioFive" name="leave_type"  />
-                        <label for="radioFive" class="radio">Family Responsibility Leave</label>
+
+                        <label for="radioFive" class="radio"><input type="radio" value="Family Responsibility Leave"
+                                id="radioFive" name="leave_type">Family Responsibility Leave</label>
                     </div>
                 </div>
                 <br>
