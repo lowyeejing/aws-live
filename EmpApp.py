@@ -115,6 +115,9 @@ def checkIn():
         cursor.execute(insert_sql, (emp_id, check_in, check_out))
         db_conn.commit()
 
+        if(cursor.execute(select_sql, {'emp_id':int(emp_id)}) == ''):
+            return render_template('Error.html', msg=str(e))
+
         print("Check In inserted into MySQL...")
 
     except Exception as e:
@@ -181,6 +184,9 @@ def searchempOutput():
     try:
         cursor.execute(getRowRecord, { 'emp_id': int(emp_id) })
 
+        if(cursor.execute(getRowRecord, {'emp_id':int(emp_id)}) == ''):
+            return render_template('Error.html', msg=str(e))
+
         for result in cursor:
             print(result)
 
@@ -211,6 +217,9 @@ def deleteEmpOutput():
     
     try:
         cursor.execute(delete_statement, {'emp_id':int(emp_id)})
+
+        if(cursor.execute(delete_statement, {'emp_id':int(emp_id)}) == ''):
+            return render_template('Error.html', msg=str(e))
 
         for result in cursor:
             print(result)
