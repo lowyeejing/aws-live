@@ -131,9 +131,9 @@ a{
         width: 50%;
     }
 }
-/* input[type=radio] {
-    display: none;
-} */
+input[type=radio] {
+    display: contents;
+}
 label.radio {
     position: relative;
     display: inline-block;
