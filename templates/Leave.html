@@ -68,13 +68,13 @@
                         </div>
                     </div>
                     <br>
-                    <label for="file">Attachment</label>
-                    <form action="/action_page.php">
+                    <div>
+                        <label for="file">Attachment</label>
                         <label for="myfile">Select a file:</label>
                         <input type="file" id="myfile" name="emp_leave_file" required>
-                    </form>
-                    <label for="comment">Comment</label>
-                    <textarea placeholder="Remarks" rows="2" name="comment"></textarea>
+                        <label for="comment">Comment</label>
+                        <textarea placeholder="Remarks" rows="2" name="comment"></textarea>
+                    </div>
                     <div class="colums">
                         <div class="btn-block">
                             <button formaction="/leave/output">SUBMIT</button>
@@ -83,7 +83,7 @@
                             <button><a href="/">BACK</a></button>
                         </div>
                     </div>
-            </form>
+                </form>
             </div>
         </div>
     </form>
