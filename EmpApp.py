@@ -195,6 +195,62 @@ def searchempOutput():
     
     return render_template("SearchEmpOutput.html",result=result)
 
+#UpdateEmployee
+@app.route("/updateemp")
+def searchemp():
+    return render_template('UpdateEmp.html')
+
+#UpdateEmployeeOutput
+@app.route("/updateemp/output", methods=['POST'])
+def AddEmpOutput():
+    emp_id = request.form['emp_id']
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    pri_skill = request.form['pri_skill']
+    location = request.form['location']
+    emp_image_file = request.files['emp_image_file']
+
+    update_sql = "UPDATE INTO employee SET first_name = (%(first_name)s) AND last_name = (%(last_name)s) AND pri_skill = (%(pri_skill)s) AND location = (%(location)s) AND emp_image_file = (%(emp_image_file)s) WHERE emp_id = %(emp_id)s"
+    cursor = db_conn.cursor()
+
+    if emp_image_file.filename == "":
+        return "Please select a file"
+
+    try:
+        cursor.execute(update_sql, (first_name, last_name, pri_skill, location, emp_image_file, emp_id))
+        db_conn.commit()
+        emp_name = "" + first_name + " " + last_name
+        # Upload image file in S3 #
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        s3 = boto3.resource('s3')
+
+        try:
+            print("Data inserted in MySQL RDS... uploading image to S3...")
+            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
+
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                emp_image_file_name_in_s3)
+
+        except Exception as e:
+            return render_template('Error.html', msg=str(e))
+    except Exception as e:
+        return render_template('Error.html', msg=str(e))
+
+    finally:
+        cursor.close()
+
+    print("all modification done...")
+    return render_template('UpdateEmpOutput.html', name=emp_name)
+
 #DeleteEmployee
 @app.route("/deleteemp", methods=['GET', 'POST'])
 def deleteEmp():

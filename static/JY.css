@@ -255,3 +255,22 @@ a {
     background-color: #51c8ff;
     color: white;
 }
+
+.update_btn {
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 36px;
+    font-weight: 500;
+    background-color: white;
+    padding: 5px 30px;
+    margin: 25px 0 10px;
+    border-color: #eaad1d;
+    color: rgb(175 113 30);
+}
+
+.update_btn:hover {
+    background-color: #eaad1d;
+    color: white;
+}

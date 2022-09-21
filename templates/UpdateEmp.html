@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Employee Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}" />
+</head>
+
+<body style="background: url('/static/img/background_display.jpeg') no-repeat center; background-size: cover;">
+    <div class="container" style="height:fit-content">
+        <button style="border: none;background: none;">
+            <a class="back" href="/emp">&times;</a>
+        </button>
+        <div class="card">
+            <h1 class="card_title" style="width:fit-content">Update Employee</h1>
+            <form action="/updateemp/output" autocomplete="on" method="POST" enctype="multipart/form-data">
+                <div class="input">
+                    <input type="file" class="input_field" accept="image/*" name="emp_image_file" id="file"
+                        onchange="loadFile(event)" style="display: none;" required>
+                    <label for="file" class="update_btn" style="cursor: pointer;">Upload Profile</label>
+                    <img id="output" width="200" />
+                    <script>
+                        var loadFile = function (event) {
+                            var image = document.getElementById('output');
+                            image.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                    </script>
+                </div>
+                <div class="input">
+                    <input type="text" name="emp_id" class="input_field input_label" placeholder="Employee ID"
+                        required />
+                </div>
+                <div class="input">
+                    <input type="text" name="first_name" class="input_field input_label" placeholder="First Name"
+                        required />
+                </div>
+                <div class="input">
+                    <input type="text" name="last_name" class="input_field input_label" placeholder="Last Name"
+                        required />
+                </div>
+                <div class="input">
+                    <input type="text" name="pri_skill" class="input_field input_label" placeholder="Primary Skills"
+                        required />
+                </div>
+                <div class="input">
+                    <input type="text" name="location" class="input_field input_label" placeholder="Location"
+                        required />
+                </div>
+                <button class="card_button" type="submit"
+                    style="background: linear-gradient(rgb(226 163 80), rgb(175 113 30));">Update Record</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
