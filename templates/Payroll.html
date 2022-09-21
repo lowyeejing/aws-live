@@ -23,7 +23,7 @@
                 <i class="far fa-calendar-alt" style="color:rgb(253, 253, 253)"></i>
             </div>
         </div>
-        <form action="/payroll/output" autocomplete="on" method = "POST" enctype="multipart/form-data" style="background: url('/static/img/pinkwallpaper.jpg') no-repeat center; background-size: cover;">
+        <form autocomplete="on" method = "POST" enctype="multipart/form-data" style="background: url('/static/img/pinkwallpaper.jpg') no-repeat center; background-size: cover;">
             
             <h1><strong>Payroll Calculator</strong></h1>
             <div class="info">
@@ -35,9 +35,9 @@
                 <input type="number" name="totalWorkDays" placeholder="Enter Total Working Day ">
             </div>
             <br>
-            <div><button type="submit">Calculate</button></div>
+            <div><button formaction="/payroll/output" type="submit">Calculate</button></div>
             <br>
-            <div><button action="/" autocomplete="on" method = "GET" style="width: 100%">Back</button></div>
+            <div><button formaction="/" autocomplete="on" method = "GET" style="width: 100%">Back</button></div>
         </form>
     </div>
 </body>
