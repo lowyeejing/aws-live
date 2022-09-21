@@ -243,10 +243,10 @@ def updateEmpOutput():
                 emp_image_file_name_in_s3)
 
         except Exception as e:
-            print(str(e))
+            return str(e)
             #return render_template('Error.html', msg=str(e))
     except Exception as e:
-        print(str(e))
+        return str(e)
         #return render_template('Error.html', msg=str(e))
 
     finally:
