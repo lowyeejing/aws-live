@@ -173,11 +173,14 @@ def searchempOutput():
     emp_id = request.form['emp_id']
     getRowRecord = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
-        
+
+    if(cursor.execute(getRowRecord, (emp_id)) == ''):
+        return render_template('Error.html', msg=str(e))
+
     try:
         cursor.execute(getRowRecord, { 'emp_id': int(emp_id) })
 
-        if(emp_id==''):
+        if(cursor.execute(getRowRecord, (emp_id)) == ''):
             return render_template('Error.html', msg=str(e))
 
         for result in cursor:
@@ -202,12 +205,17 @@ def deleteEmpOutput():
 
     emp_id = request.form['emp_id']
 
-    cursor = db_conn.cursor()
     delete_statement = "DELETE FROM employee WHERE emp_id = %(emp_id)s" 
-   
-
+    cursor = db_conn.cursor()
+    
+    if(cursor.execute(delete_statement, (emp_id)) == ''):
+        return render_template('Error.html', msg=str(e))
+    
     try:
         cursor.execute(delete_statement, {'emp_id':int(emp_id)})
+        
+        if(cursor.execute(delete_statement, (emp_id)) == ''):
+            return render_template('Error.html', msg=str(e))
 
         for result in cursor:
             print(result)
@@ -335,4 +343,3 @@ def CalculatePayRoll():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
-

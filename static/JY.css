@@ -236,3 +236,22 @@ a {
     background-color: #ffcc96;
     color: white;
 }
+
+.delete_btn {
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 36px;
+    font-weight: 500;
+    background-color: white;
+    padding: 5px 30px;
+    margin: 25px 0 10px;
+    border-color: #51c8ff;
+    color: #006aff;
+}
+
+.delete_btn:hover {
+    background-color: #51c8ff;
+    color: white;
+}
