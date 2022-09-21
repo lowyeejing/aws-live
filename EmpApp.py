@@ -218,7 +218,7 @@ def updateEmpOutput():
 
     try:
         #emp_id, first_name, last_name, pri_skill, location, emp_image_file
-        {'emp_id': emp_id, 'first_name': first_name, 'last_name': last_name, 'pri_skill': pri_skill, 'location': location, 'emp_image_file': emp_image_file}
+        #{'emp_id': emp_id, 'first_name': first_name, 'last_name': last_name, 'pri_skill': pri_skill, 'location': location, 'emp_image_file': emp_image_file}
         cursor.execute(update_sql, ({'emp_id': emp_id, 'first_name': first_name, 'last_name': last_name, 'pri_skill': pri_skill, 'location': location, 'emp_image_file': emp_image_file}))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
