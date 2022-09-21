@@ -95,8 +95,8 @@ form {
 }
 .form-inner input,
 .form-inner textarea {
-    display: block;
-    width: 100%;
+    /* display: block; */
+    /* width: 100%; */
     padding: 10px 20px;
     margin: 12px 0px;
     border: none;
@@ -132,9 +132,10 @@ a{
     }
 }
 input[type=radio] {
-    display: contents;
+    /* display: contents; */
+    width: 5%;
 }
-label.radio {
+/* label.radio {
     position: relative;
     display: inline-block;
     text-indent: 32px;
@@ -163,7 +164,7 @@ label.radio:after {
     border-left: 3px solid #8ebf42;
     transform: rotate(-45deg);
     opacity: 0;
-}
+} */
 input[type=radio]:checked + label:after {
     opacity: 1;
 }
