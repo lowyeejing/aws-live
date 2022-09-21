@@ -15,7 +15,8 @@ python3 EmpApp.py
 
 #Delete aws-live/
 sudo rm -r aws-live/
-
+git clone https://github.com/lowyeejing/aws-live.git
+cd aws-live
 sudo python3 EmpApp.py
 
 
