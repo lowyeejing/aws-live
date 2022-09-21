@@ -217,7 +217,9 @@ def updateEmpOutput():
         return "Please select a file"
 
     try:
-        cursor.execute(update_sql, (emp_id, first_name, last_name, pri_skill, location, emp_image_file))
+        #emp_id, first_name, last_name, pri_skill, location, emp_image_file
+        {'emp_id': emp_id, 'first_name': first_name, 'last_name': last_name, 'pri_skill': pri_skill, 'location': location, 'emp_image_file': emp_image_file}
+        cursor.execute(update_sql, ({'emp_id': emp_id, 'first_name': first_name, 'last_name': last_name, 'pri_skill': pri_skill, 'location': location, 'emp_image_file': emp_image_file}))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Upload image file in S3 #
@@ -240,16 +242,16 @@ def updateEmpOutput():
                 custombucket,
                 emp_image_file_name_in_s3)
 
-    #     except Exception as e:
-    #         return render_template('Error.html', msg=str(e))
-    # except Exception as e:
-    #     return render_template('Error.html', msg=str(e))
+        except Exception as e:
+            print(str(e))
+            #return render_template('Error.html', msg=str(e))
+    except Exception as e:
+        print(str(e))
+        #return render_template('Error.html', msg=str(e))
 
-    # finally:
-    #     cursor.close()
+    finally:
+        cursor.close()
 
-    cursor.close()
-    
     print("all modification done...")
     return render_template('UpdateEmpOutput.html', name=emp_name)
 
