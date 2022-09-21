@@ -197,12 +197,12 @@ def searchempOutput():
 
 #UpdateEmployee
 @app.route("/updateemp")
-def searchemp():
+def updateemp():
     return render_template('UpdateEmp.html')
 
 #UpdateEmployeeOutput
 @app.route("/updateemp/output", methods=['POST'])
-def AddEmpOutput():
+def updateEmpOutput():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
