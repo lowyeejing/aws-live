@@ -174,7 +174,7 @@ def searchempOutput():
     getRowRecord = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
 
-    if(cursor.execute(getRowRecord, (emp_id)) == ''):
+    if(cursor.execute(getRowRecord, {'emp_id':int(emp_id)}) == ''):
         return render_template('Error.html', msg=str(e))
 
     try:
@@ -208,7 +208,7 @@ def deleteEmpOutput():
     delete_statement = "DELETE FROM employee WHERE emp_id = %(emp_id)s" 
     cursor = db_conn.cursor()
     
-    if(cursor.execute(delete_statement, (emp_id)) == ''):
+    if(cursor.execute(delete_statement, {'emp_id':int(emp_id)}) == ''):
         return render_template('Error.html', msg=str(e))
     
     try:
