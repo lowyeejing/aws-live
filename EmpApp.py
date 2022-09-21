@@ -217,7 +217,7 @@ def updateEmpOutput():
         return "Please select a file"
 
     try:
-        cursor.execute(update_sql, (first_name, last_name, pri_skill, location, emp_image_file, emp_id))
+        cursor.execute(update_sql, (emp_id, first_name, last_name, pri_skill, location, emp_image_file))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Upload image file in S3 #
@@ -248,6 +248,7 @@ def updateEmpOutput():
     finally:
         cursor.close()
 
+    db_conn.commit()
     print("all modification done...")
     return render_template('UpdateEmpOutput.html', name=emp_name)
 
