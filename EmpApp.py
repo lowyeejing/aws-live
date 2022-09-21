@@ -177,7 +177,7 @@ def searchempOutput():
     try:
         cursor.execute(getRowRecord, { 'emp_id': int(emp_id) })
 
-        if(emp_id=''):
+        if(emp_id==''):
             return render_template('Error.html', msg=str(e))
 
         for result in cursor:
