@@ -3,19 +3,18 @@
 
 <head>
     <title>Update Employee Output</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}"/> -->
-    <link rel="stylesheet" href="../static/JY.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='JY.css')}}" />
 </head>
 
-<!-- <body style="background: url('/static/img/background_update.jpg') no-repeat center; background-size: cover;"> -->
-<body style="background: url('../static/img/background_update.jpg') no-repeat center; background-size: cover;">
+<body style="background: url('/static/img/background_update.jpg') no-repeat center; background-size: cover;">
     <div class="output">
         <h1 class="output_title" style="box-shadow: 0 3px 21px 0px rgb(175 113 30);">Employee Updated Successfully!</h1>
         <h3>The Following Employee has been updated to the database :</h3>
         <h3>{{ name }}</h3><br>
         <div style="text-align:center;">
             <form action="/" autocomplete="on" method="GET">
-                <button type="submit" class="back_btn" style="border-color: rgb(175 113 30); color: rgb(189 122 31);">Go Back</button>
+                <button type="submit" class="back_btn" style="border-color: rgb(175 113 30); color: rgb(189 122 31);">Go
+                    Back</button>
             </form>
         </div>
     </div>
