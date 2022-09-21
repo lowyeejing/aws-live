@@ -186,13 +186,14 @@ def searchempOutput():
 
         for result in cursor:
             print(result)
-            return render_template("SearchEmpOutput.html",result=result)
 
     except Exception as e:
         return render_template('Error.html', msg=str(e))
         
     finally:
         cursor.close()
+    
+    return render_template("SearchEmpOutput.html",result=result)
 
 #DeleteEmployee
 @app.route("/deleteemp", methods=['GET', 'POST'])
@@ -340,6 +341,9 @@ def CalculatePayRoll():
 
     return render_template('PayrollOutput.html',date=datetime.now(), emp_id=emp_id, mthSalary = totalSalary, workingHours = totalWorkingHrs ,BonusEarned=bonus)
 
+@app.errorhandler(Excecption)
+def handle_exception(e):
+    return render_template('Error.html', msg=str(e))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
