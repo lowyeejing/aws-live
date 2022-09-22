@@ -8,11 +8,10 @@
 </head>
 
 <body style="background: url('/static/img/background_update.jpg') no-repeat center; background-size: cover;">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/emp">Manage Employee</a></li>
+    <ul class="navibar">
+        <li class="navibar"><a href="/">Home</a></li>
         <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+            <a href="/emp" class="dropbtn">Manage Employee</a>
             <div class="dropdown-content">
                 <a href="/addemp">Add Employee</a>
                 <a href="/searchemp">Search Employee</a>
@@ -20,10 +19,10 @@
                 <a href="/deleteemp">Delete Employee</a>
             </div>
         </li>
-        <li><a href="/attendance">Attendance</a></li>
-        <li><a href="/leave">Leave</a></li>
-        <li><a href="/payroll">Payroll</a></li>
-        <li><a href="/aboutus">About Us</a></li>
+        <li class="navibar"><a href="/attendance">Attendance</a></li>
+        <li class="navibar"><a href="/leave">Leave</a></li>
+        <li class="navibar"><a href="/payroll">Payroll</a></li>
+        <li class="navibar"><a href="/aboutus">About Us</a></li>
     </ul>
     <div class="output">
         <h1 class="output_title" style="box-shadow: 0 3px 21px 0px rgb(175 113 30);">Employee Updated Successfully!</h1>
