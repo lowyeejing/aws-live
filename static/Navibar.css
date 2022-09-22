@@ -1,6 +1,10 @@
 body {
   background-color: #e4f3f9;
 }
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
 
 ul.navibar {
   list-style-type: none;
