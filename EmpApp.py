@@ -28,7 +28,7 @@ def home():
 
 #AboutUs
 @app.route("/aboutus", methods=['GET', 'POST'])
-def home():
+def abtus():
     return render_template('AboutUs.html')
 
 #ManageEmployee
