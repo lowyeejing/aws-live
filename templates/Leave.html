@@ -10,14 +10,16 @@
 <body style="background: url('/static/img/LeaveBackground.jpeg') no-repeat center; background-size: cover;">
     <ul>
         <li><a href="/">Home</a></li>
-        <li class="dropdown">
-            <a href="/emp" class="dropbtn">Manage Employee</a>
-            <div class="dropdown-content" style="display:flex">
-                <a href="/addemp">Add Employee</a>
-                <a href="/searchemp">Search Employee</a>
-                <a href="/updateemp">Update Employee</a>
-                <a href="/deleteemp">Delete Employee</a>
-            </div>
+        <li class="dropdown">      
+            <div class="subnav">
+                <button class="subnavbtn"><a href="/emp" class="dropbtn">Manage Employee</a></button>
+                <div class="subnav-content">
+                    <a href="/addemp">Add Employee</a>
+                    <a href="/searchemp">Search Employee</a>
+                    <a href="/updateemp">Update Employee</a>
+                    <a href="/deleteemp">Delete Employee</a>
+                </div>
+            </div> 
         </li>
         <li><a href="/attendance">Attendance</a></li>
         <li><a href="/leave">Leave</a></li>
