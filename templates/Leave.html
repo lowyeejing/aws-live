@@ -4,27 +4,10 @@
 <head>
     <title>Leave</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='YJ.css')}}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='Navibar.css')}}"/>
+    <link rel="stylesheet" href="Navibar.css" />
 </head>
 
 <body style="background: url('/static/img/LeaveBackground.jpeg') no-repeat center; background-size: cover;">
-    <div class="topnav" id="myTopnav">
-        <a href="/" class="active">Homepage</a>
-        <div class="dropdown">
-            <button class="dropbtn"><a href="/emp">Manage Employee</a>
-            </button>
-            <div class="dropdown-content">
-                <a href="/addemp">Add Employee</a>
-                <a href="/searchemp">Search Employee</a>
-                <a href="/updateemp">Update Employee</a>
-                <a href="/deleteemp">Delete Employee</a>
-            </div>
-        </div>
-        <a href="/attendance">Attendance</a>
-        <a href="/leave">Leave</a>
-        <a href="/payroll">Payroll</a>
-        <a href="/aboutus">About Us</a>
-    </div>
     <form action="/leave/output" class="decor" autocomplete="on" method="POST" enctype="multipart/form-data">
         <div class="form-left-decoration"></div>
         <div class="form-right-decoration"></div>
