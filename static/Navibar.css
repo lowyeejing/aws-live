@@ -26,7 +26,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-  background-color: rgb(177, 203, 252);
+  background-color: rgb(159, 164, 175);
 }
 
 li.dropdown {
@@ -51,7 +51,7 @@ li.dropdown {
   text-align: left;
 }
 
-.dropdown-content a:hover {background-color: rgb(177, 203, 252);}
+.dropdown-content a:hover {background-color: rgb(159, 164, 175);}
 
 .dropdown:hover .dropdown-content {
   display: block;
