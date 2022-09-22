@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Payroll</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
         integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='Payroll.css')}}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='Navibar.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Payroll.css')}}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='Navibar.css')}}" />
 </head>
 
 <body style="background: url('/static/img/pinkwallpaper.jpg') no-repeat center; background-size: cover;">
@@ -41,8 +41,9 @@
                 <i class="far fa-calendar-alt" style="color:rgb(253, 253, 253)"></i>
             </div>
         </div>
-        <form autocomplete="on" method = "POST" enctype="multipart/form-data" style="background: url('/static/img/pinkwallpaper.jpg') no-repeat center; background-size: cover;">
-            
+        <form autocomplete="on" method="POST" enctype="multipart/form-data"
+            style="background: url('/static/img/pinkwallpaper.jpg') no-repeat center; background-size: cover;">
+
             <h1><strong>Payroll Calculator</strong></h1>
             <div class="info">
                 <p>Employee ID</p>
@@ -55,7 +56,7 @@
             <br>
             <div><button formaction="/payroll/output" type="submit">Calculate</button></div>
             <br>
-            <div><button formaction="/" autocomplete="on" method = "GET" style="width: 100%">Back</button></div>
+            <div><button formaction="/" autocomplete="on" method="GET" style="width: 100%">Back</button></div>
         </form>
     </div>
 </body>
