@@ -38,15 +38,9 @@ html {
   margin: 8px;
 }
 
-/* h1{
-    text-shadow: 10px 10px 10px black;
-} */
-
 .about-section {
   padding: 50px;
   text-align: center;
-  background: url('aboutsUs1.jpg') no-repeat center ; 
-  background-size: cover;
   color: white;
   min-height: 500px;
 }

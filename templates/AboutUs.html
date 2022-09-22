@@ -3,13 +3,11 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="AboutUs.css" />
-    <link rel="stylesheet" href="Navibar.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='AboutUs.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Navibar.css')}}"/>
 </head>
 
-
-
-<body>
+<body style="background: url('/static/img/aboutsUs1.jpg') no-repeat center; background-size: cover;">
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/emp">Manage Employee</a></li>

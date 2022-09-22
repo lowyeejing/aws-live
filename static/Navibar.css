@@ -5,12 +5,11 @@ body {
     list-style-type: none;
     margin: 0 32%;
     padding: 0;
-    /* overflow: hidden; */
     background-color: none;
     position: fixed;
     top: 0;
     width: 100%;
-    /* opacity: 80%; */
+    left: 0%;
   }
   
   li {
@@ -19,14 +18,15 @@ body {
   
   li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    text-shadow: 0 0 black;
   }
   
   li a:hover, .dropdown:hover .dropbtn {
-    background-color: rgb(135, 173, 243);
+    background-color: rgb(177, 203, 252);
   }
   
   li.dropdown {
