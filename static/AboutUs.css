@@ -19,6 +19,9 @@ html {
   padding: 0 8px;
 }
 
+.h1, p{
+  color: rgb(37, 4, 90);
+}
 .column1 {
     float: left;
     width: 50%;
