@@ -66,15 +66,14 @@ li.dropdown {
 
 body {margin:0;font-family:Arial}
 
-.topnav {
+/* .topnav {
   overflow: hidden;
-  background-color: #333;
-}
+} */
 
 .topnav a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -82,7 +81,7 @@ body {margin:0;font-family:Arial}
 }
 
 .active {
-  background-color: #04AA6D;
+  background-color: #3f0b94;
   color: white;
 }
 
@@ -125,12 +124,12 @@ body {margin:0;font-family:Arial}
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #555;
+  background-color: rgb(177, 203, 252);
   color: white;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: rgb(177, 203, 252);
   color: black;
 }
 
